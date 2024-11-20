@@ -1,0 +1,93 @@
+accept: Object.keys(itemImages).map(id => `#${id}`).
+join(", "), //accept all items in itemImages
+activeClass: "highlight",
+over: function (event, ui) {
+    $(this).addClass("highlight");
+},
+out: function (event, ui) {
+    $(this).addClass("highlight");
+},
+drop: function (event, ui) {
+// get the id of the dragged item
+    const droppedId = ui.draggable.attr("id");
+    const targetImagesSrc = itemImages[droppedId];
+
+    if (targetImagesSrc) {
+        //if dropped correctly
+    $(this).attr("src", targetImagesSrc);
+    ui.draggable.css("visibility", "hidden"); 
+    $("#happyG").fadeIn(300).delay(1500).fadeOut(300);
+    } else {
+        $("#sadG").fadeIn(300).delay(1500).fadeOut(300); //show sad girl
+    }
+    $(this).addClass("highlight");
+// check if the ID is in itemImages
+    if (itemImages[droppedId]) {
+    $(this).attr("src", itemImages[droppedId]);
+
+    ui.draggable.css("visibility", "hidden"); //hide the orginal dragged items to prevent dduplication
+    }
+    $(this).addClass("highlight"); // reapply highlight
+}
+})
+
+
+
+
+
+
+
+
+
+
+
+accept: function (draggable) {
+    const draggedId = draggable.attr('id');
+    const droppableId = $(this).attr('id'); // The ID of the droppable area
+
+    // Only allow drop if the draggable item matches the item for this droppable area
+    return itemImages[draggedId] && droppableId.includes(draggedId); // Ensures only the correct item is dropped here
+},
+activeClass: "highlight", // Highlight the droppable area when the draggable is over it    
+over: handleOverEvent,
+out: handleOutEvent,
+drop: handleDropEvent    
+}); //END OF DROPPABLE
+
+function handleOverEvent (event, ui) {
+$(this).addClass("highlight");
+
+//Hide character when hovering over
+       $("#happyG").css("visibility", "hidden");     
+       $("#sadG").css("visibility", "hidden");
+
+};
+function handleOutEvent (event, ui) {
+$(this).removeClass("highlight");
+
+// Hide character when the element leaves the droppable area
+$("#happyG").css("visibility", "hidden");     
+$("#sadG").css("visibility", "hidden");
+};
+function handleDropEvent (event, ui) {
+const droppedId = ui.draggable.attr("id"); // Get the ID of the dropped element
+const droppableId = $(this).attr("id");
+
+console.log(`Dropped ID: ${droppedId}, Droppable ID: ${droppableId}`); // Debugging log
+
+if (itemImages[droppedId] && droppableId.includes(droppedId)) {
+    $(this).attr("src", itemImages[droppedId]); // Set the image source based on the dropped item
+
+    ui.draggable.css("visibility", "hidden"); // Hide the original draggable element to avoid duplication
+
+    $("#happyG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
+
+} else {
+    $("#sadG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
+
+    mistake ++
+}
+
+$(this).removeClass("highlight"); // Remove the highlight when drop is done
+}
+

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&family=New+Amsterdam&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Nina & Niko's Tidy-Up Adventure - Kitchen</title>
+</head>
+
+<body background="images/background.jpg">
+
+    <header>
+
+        <div></div>
+        
+        <div>
+            <h1>Nina & Nico’s Tidy-Up Adventure</h1>
+        </div>
+
+        <audio id="gameaudio" src="audio/gameaudio.mp3" loop></audio>
+        <div id="audioContainer">
+
+            <button id="audioBtn"><i class="fas fa-volume-up"></i></button>
+        </div>
+
+    </header>
+
+    <div class="page" style="background-image: url(images/bedroom/bedroomFaded.png);">
+
+        <div class="leftPage">
+            <div class="timer_score">
+                <h2 class="hTimer">TIME: <span class="timer" id="bedroomTimer"></span></h2>
+
+                    <h2>
+                        <img class="heart" id="heart1" src="images/heart.png" alt="heart">
+                        <img class="heart" id="heart2" src="images/heart.png" alt="heart">
+                        <img class="heart" id="heart3" src="images/heart.png" alt="heart"> <span class="score"
+                            id="bedroomScore"></span>
+                    </h2>
+            </div>
+
+            <div class="characterContainer">
+                <img class="happyG" id="happyG" src="images/Character/Girl/hurraGirl.png" alt="happy girl"
+                    style="visibility: visible;">
+                <img class="sadG" id="sadG" src="images/Character/Girl/sadGirl.png" alt="sad girl">
+            </div>
+
+        </div>
+
+        <div class="bedroomFullPage">
+
+            <div class="dropZone" id="dropZone">
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="abcFaded" src="images/bedroom/abcFaded.png"
+                        alt="Faded image of an abc">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="ballFaded" src="images/bedroom/ballFaded.png"
+                        alt="Faded image of a ball">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="bearFaded" src="images/bedroom/bearFaded.png"
+                        alt="Faded image of a teddy bear">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="bedFaded" src="images/bedroom/bedFaded.png"
+                        alt="Faded image of a bed">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="blocksFaded" src="images/bedroom/blocksFaded.png"
+                        alt="Faded image of blocks">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="carFaded" src="images/bedroom/carFaded.png"
+                        alt="Faded image of a car">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="dinosaurFaded" src="images/bedroom/dinosaurFaded.png"
+                        alt="Faded image of a dinosaur">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="dollFaded" src="images/bedroom/dollFaded.png"
+                        alt="Faded image of a doll">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="giraffeFaded" src="images/bedroom/giraffeFaded.png"
+                        alt="Faded image of giraffe">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="pillowFaded" src="images/bedroom/pillowFaded.png"
+                        alt="Faded image of a pillow">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="planeFaded" src="images/bedroom/planeFaded.png"
+                        alt="Faded image of a plane">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="robotFaded" src="images/bedroom/robotFaded.png"
+                        alt="Faded image of a robot">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="rocketFaded" src="images/bedroom/rocketFaded.png"
+                        alt="Faded image of a rocket">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="spiningFaded" src="images/bedroom/springFaded.png"
+                        alt="Faded image of a spining">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="trainFaded" src="images/bedroom/trainFaded.png"
+                        alt="Faded image of a train">
+                </span>
+
+            </div> <!--dropZone div ends-->
+
+            <div class="container" id="container">
+                <span class="elements">
+                    <img class="abcBlocks dragElement" id="abcBlocks" src="images/bedroom/abcBlocks.png"
+                        alt="An image of an abc blocks">
+                </span>
+
+                <span class="elements">
+                    <img class="ball dragElement" id="ball" src="images/bedroom/ball.png" alt="An image of a ball">
+                </span>
+
+
+                <span class="elements">
+                    <img class="bear dragElement" id="bear" src="images/bedroom/bear.png"
+                        alt="An image of a teddy bear">
+                </span>
+
+
+                <span class="elements">
+                    <img class="bed dragElement" id="bed" src="images/bedroom/bed.png" alt="An image of a bed">
+                </span>
+
+
+                <span class="elements">
+                    <img class="blocks dragElement" id="blocks" src="images/bedroom/blocks.png"
+                        alt="An image of blocks">
+                </span>
+
+                <span class="elements">
+                    <img class="car dragElement" id="car" src="images/bedroom/car.png" alt="An image of a car">
+                </span>
+
+
+                <span class="elements">
+                    <img class="dinosaur dragElement" id="dinosaur" src="images/bedroom/dinosaur.png"
+                        alt="An image of a dinosaur">
+                </span>
+
+
+                <span class="elements">
+                    <img class="doll dragElement" id="doll" src="images/bedroom/doll.png" alt="An image of a doll">
+                </span>
+
+                <span class="elements">
+                    <img class="giraffe dragElement" id="giraffe" src="images/bedroom/giraffe.png"
+                        alt="An image of a giraffe">
+                </span>
+
+
+                <span class="elements">
+                    <img class="pillow dragElement" id="pillow" src="images/bedroom/pillow.png"
+                        alt="An image of a pillow">
+                </span>
+
+
+                <span class="elements">
+                    <img class="plane dragElement" id="plane" src="images/bedroom/plane.png" alt="An image of a plane">
+                </span>
+
+                <span class="elements">
+                    <img class="robot dragElement" id="robot" src="images/bedroom/robot.png" alt="An image of a robot">
+                </span>
+
+
+                <span class="elements">
+                    <img class="rocket dragElement" id="rocket" src="images/bedroom/rocket.png"
+                        alt="An image of a rocket">
+                </span>
+
+                <span class="elements">
+                    <img class="spining dragElement" id="spining" src="images/bedroom/spring.png"
+                        alt="An image of a spining">
+                </span>
+
+                <span class="elements">
+                    <img class="train dragElement" id="train" src="images/bedroom/train.png" alt="An image of a train">
+                </span>
+
+            </div> <!--container div end-->
+        </div> <!--kitchenFullPage div ends-->
+    </div> <!--page div end-->
+
+
+
+    <link rel="stylesheet" href="jq/jqueryUI/jquery-ui.min.css">
+    <script src="jq/jqueryCORE/jquery-3.6.1.min.js"></script>
+    <script src="jq/jqueryUI/jquery-ui.min.js"></script>
+    <script defer src="js/script.js"></script>
+
+</body>
+
+</html>

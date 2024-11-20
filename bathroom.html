@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&family=New+Amsterdam&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Nina & Niko's Tidy-Up Adventure - Bathroom</title>
+</head>
+
+
+<body background="images/background.jpg">
+
+    <header>
+        <div></div>
+
+        <div>
+            <h1>Nina & Nico’s Tidy-Up Adventure</h1>
+        </div>
+
+        <audio id="gameaudio" src="audio/gameaudio.mp3" loop></audio>
+        <div id="audioContainer">
+
+            <button id="audioBtn"><i class="fas fa-volume-up"></i></button>
+        </div>
+
+    </header>
+
+    <div class="page" style="background-image: url(images/bathroom/bathroomFaded.png);">
+
+        <div class="leftPage">
+            <div class="timer_score">
+                <h2 class="hTimer">TIME: <span class="timer" id="bathroomTimer"></span></h2>
+
+                <h2>
+                    <div>
+                    <img class="heart" id="heart1" src="images/heart.png" alt="heart">
+                    <img class="heart" id="heart2" src="images/heart.png" alt="heart">
+                    <img class="heart" id="heart3" src="images/heart.png" alt="heart"> <span class="score"
+                        id="bathroomScore"></span></div>
+                </h2>
+            </div>
+
+            <div class="characterContainer">
+                <img class="happyG" id="happyG" src="images/Character/Girl/hurraGirl.png" alt="happy">
+                <img class="sadG" id="sadG" src="images/Character/Girl/sadGirl.png" alt="sad girl">
+            </div>
+
+        </div>
+
+
+
+        <div class="bathroomFullPage">
+
+            <div class="dropZone" id="dropZone">
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="bathFaded" src="images/bathroom/bathFaded.png"
+                        alt="Faded image of a bath">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="brushFaded" src="images/bathroom/brushFaded.png"
+                        alt="Faded image of a hair brush">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="duckFaded" src="images/bathroom/duckFaded.png"
+                        alt="Faded image of a duck">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="mirrorFaded" src="images/bathroom/mirrorFaded.png"
+                        alt="Faded image of a mirror">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="oneTowelFaded" src="images/bathroom/oneTowelFaded.png"
+                        alt="Faded image of a towel">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="robeFaded" src="images/bathroom/robeFaded.png"
+                        alt="Faded image of a robe">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="shampooFaded" src="images/bathroom/shampooFaded.png"
+                        alt="Faded image of a shampoo">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="showerFaded" src="images/bathroom/showerFaded.png"
+                        alt="Faded image of a shower">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="sinkFaded" src="images/bathroom/sinkFaded.png"
+                        alt="Faded image of a sink">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="soapFaded" src="images/bathroom/soapFaded.png"
+                        alt="Faded image of a soap">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="toiletFaded" src="images/bathroom/toiletFaded.png"
+                        alt="Faded image of a toilet">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="toiletRollFaded" src="images/bathroom/toiletRollFaded.png"
+                        alt="Faded image of a toilet roll">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="toothbrushFaded" src="images/bathroom/toothbrushFaded.png"
+                        alt="Faded image of a toothbrush">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="toothpasteFaded" src="images/bathroom/toothpasteFaded.png"
+                        alt="Faded image of a toothpaste">
+                </span>
+
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="towelsFaded" src="images/bathroom/towelsFaded.png"
+                        alt="Faded image of a towels">
+                </span>
+
+            </div> <!--dropZone div ends-->
+
+            <div class="container" id="container">
+                <span class="elements">
+                    <img class="bath dragElement" id="bath" src="images/bathroom/bath.png" alt="An image of a bath">
+                </span>
+
+                <span class="elements">
+                    <img class="brush dragElement" id="brush" src="images/bathroom/brush.png"
+                        alt="An image of a hair brush">
+                </span>
+
+
+                <span class="elements">
+                    <img class="duck dragElement" id="duck" src="images/bathroom/duck.png" alt="An image of a duck">
+                </span>
+
+
+                <span class="elements">
+                    <img class="mirror dragElement" id="mirror" src="images/bathroom/mirror.png"
+                        alt="An image of a mirror">
+                </span>
+
+
+                <span class="elements">
+                    <img class="oneTowel dragElement" id="oneTowel" src="images/bathroom/oneTowel.png"
+                        alt="An image of a towel">
+                </span>
+
+                <span class="elements">
+                    <img class="robe dragElement" id="robe" src="images/bathroom/robe.png" alt="An image of a robe">
+                </span>
+
+
+                <span class="elements">
+                    <img class="shampoo dragElement" id="shampoo" src="images/bathroom/shampoo.png"
+                        alt="An image of a shampoo">
+                </span>
+
+
+                <span class="elements">
+                    <img class="shower dragElement" id="shower" src="images/bathroom/shower.png"
+                        alt="An image of a shower">
+                </span>
+
+                <span class="elements">
+                    <img class="sink dragElement" id="sink" src="images/bathroom/sink.png" alt="An image of a sink">
+                </span>
+
+
+                <span class="elements">
+                    <img class="soap dragElement" id="soap" src="images/bathroom/soap.png" alt="An image of a soap">
+                </span>
+
+
+                <span class="elements">
+                    <img class="toilet dragElement" id="toilet" src="images/bathroom/toilet.png"
+                        alt="An image of a toilet">
+                </span>
+
+                <span class="elements">
+                    <img class="toiletRoll dragElement" id="toiletRoll" src="images/bathroom/toiletRoll.png"
+                        alt="An image of a toilet roll">
+                </span>
+
+
+                <span class="elements">
+                    <img class="toothbrush dragElement" id="toothbrush" src="images/bathroom/toothbrush.png"
+                        alt="An image of a toothbrush">
+                </span>
+
+
+                <span class="elements">
+                    <img class="toothpaste dragElement" id="toothpaste" src="images/bathroom/toothpaste.png"
+                        alt="An image of a toothpaste">
+                </span>
+
+
+                <span class="elements">
+                    <img class="towels dragElement" id="towels" src="images/bathroom/towels.png"
+                        alt="An image of a towels">
+                </span>
+            </div> <!--container div end-->
+        </div> <!--bathroomFullPage div ends-->
+
+    </div> <!--page div end-->
+
+
+    <link rel="stylesheet" href="jq/jqueryUI/jquery-ui.min.css">
+    <script src="jq/jqueryCORE/jquery-3.6.1.min.js"></script>
+    <script src="jq/jqueryUI/jquery-ui.min.js"></script>
+    <script defer src="js/script.js"></script>
+
+</body>
+
+</html>

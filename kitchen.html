@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&family=New+Amsterdam&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Nina & Niko's Tidy-Up Adventure - Kitchen</title>
+</head>
+
+<body background="images/background.jpg">
+
+    <header>
+        <div></div>
+
+        <div>
+            <h1>Nina & Nico’s Tidy-Up Adventure</h1>
+        </div>
+
+        <audio id="gameaudio" src="audio/gameaudio.mp3" loop></audio>
+        <div id="audioContainer">
+
+            <button id="audioBtn"><i class="fas fa-volume-up"></i></button>
+        </div>
+
+    </header>
+
+    <div class="page" style="background-image: url(images/kitchen/kitchenFaded.png);">
+
+        <div class="leftPage">
+            <div class="timer_score">
+                <h2 class="hTimer">TIME: <span class="timer" id="kitchenTimer"></span></h2>
+
+                <h2>
+                    <img class="heart" id="heart1" src="images/heart.png" alt="heart">
+                    <img class="heart" id="heart2" src="images/heart.png" alt="heart">
+                    <img class="heart" id="heart3" src="images/heart.png" alt="heart"> <span class="score"
+                        id="kitchenScore"></span>
+                </h2>
+            </div>
+
+            <div class="characterContainer">
+                <img class="happyG" id="happyG" src="images/Character/Girl/hurraGirl.png" alt="happy girl"
+                    style="visibility: visible;">
+                <img class="sadG" id="sadG" src="images/Character/Girl/sadGirl.png" alt="sad girl">
+            </div>
+
+        </div>
+
+
+
+    <div class="kitchenFullPage">
+
+        <div class="dropZone" id="dropZone">
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="apronFaded" src="images/kitchen/apronFaded.png"
+                    alt="Faded image of an apron">
+            </span>
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="bowlFaded" src="images/kitchen/bowlFaded.png"
+                    alt="Faded image of a bowl">
+            </span>
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="choppingFaded" src="images/kitchen/choppingFaded.png"
+                    alt="Faded image of a chopping board">
+            </span>
+
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="cupFaded" src="images/kitchen/cupFaded.png" alt="Faded image of a cup">
+            </span>
+
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="dishFaded" src="images/kitchen/dishWashingFaded.png"
+                    alt="Faded image of a dishes">
+            </span>
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="glassFaded" src="images/kitchen/glassFaded.png"
+                    alt="Faded image of a glass">
+            </span>
+
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="glovesFaded" src="images/kitchen/glovesFaded.png"
+                    alt="Faded image of gloves">
+            </span>
+
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="graterFaded" src="images/kitchen/graterFaded.png"
+                    alt="Faded image of a grater">
+            </span>
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="hanglingFaded" src="images/kitchen/hangingAccessoriesFaded.png"
+                    alt="Faded image of hanging accessories">
+            </span>
+
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="knifeFaded" src="images/kitchen/knifeFaded.png"
+                    alt="Faded image of a knife">
+            </span>
+
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="mixerFaded" src="images/kitchen/mixerFaded.png"
+                    alt="Faded image of a mixer">
+            </span>
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="panFaded" src="images/kitchen/panFaded.png" alt="Faded image of a pan">
+            </span>
+
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="peelerFaded" src="images/kitchen/peelerFaded.png"
+                    alt="Faded image of a peeler">
+            </span>
+
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="tosterFaded" src="images/kitchen/tosterFaded.png"
+                    alt="Faded image of a toster">
+            </span>
+
+
+            <span class="fadedElements">
+                <img class="droppableFaded" id="whiskFaded" src="images/kitchen/whiskFaded.png"
+                    alt="Faded image of a whisk">
+            </span>
+
+        </div> <!--dropZone div ends-->
+
+        <div class="container" id="container">
+            <span class="elements">
+                <img class="apron dragElement" id="apron" src="images/kitchen/apron.png" alt="An image of an apron">
+            </span>
+
+            <span class="elements">
+                <img class="bowl dragElement" id="bowl" src="images/kitchen/bowl.png" alt="An image of a bowl">
+            </span>
+
+
+            <span class="elements">
+                <img class="chopping dragElement" id="chopping" src="images/kitchen/chopping.png"
+                    alt="An image of a chopping board">
+            </span>
+
+
+            <span class="elements">
+                <img class="cup dragElement" id="cup" src="images/kitchen/cup.png" alt="An image of a cup">
+            </span>
+
+
+            <span class="elements">
+                <img class="dishes dragElement" id="dishes" src="images/kitchen/dishWashing.png"
+                    alt="An image of a dishes">
+            </span>
+
+            <span class="elements">
+                <img class="glass dragElement" id="glass" src="images/kitchen/glass.png" alt="An image of a glass">
+            </span>
+
+
+            <span class="elements">
+                <img class="gloves dragElement" id="gloves" src="images/kitchen/gloves.png" alt="An image of gloves">
+            </span>
+
+
+            <span class="elements">
+                <img class="grater dragElement" id="grater" src="images/kitchen/grater.png" alt="An image of a grater">
+            </span>
+
+            <span class="elements">
+                <img class="hanging dragElement" id="hanging" src="images/kitchen/hangingAccessories.png"
+                    alt="An image of a hanging accessories">
+            </span>
+
+
+            <span class="elements">
+                <img class="knife dragElement" id="knife" src="images/kitchen/knife.png" alt="An image of a knife">
+            </span>
+
+
+            <span class="elements">
+                <img class="mixer dragElement" id="mixer" src="images/kitchen/mixer.png" alt="An image of a mixer">
+            </span>
+
+            <span class="elements">
+                <img class="pan dragElement" id="pan" src="images/kitchen/pan.png" alt="An image of a pan">
+            </span>
+
+
+            <span class="elements">
+                <img class="peeler dragElement" id="peeler" src="images/kitchen/peeler.png" alt="An image of a peeler">
+            </span>
+
+            <span class="elements">
+                <img class="toster dragElement" id="toster" src="images/kitchen/toster.png" alt="An image of a toster">
+            </span>
+
+            <span class="elements">
+                <img class="whisk dragElement" id="whisk" src="images/kitchen/whisk.png" alt="An image of a whisk">
+            </span>
+
+        </div> <!--container div end-->
+    </div> <!--kitchenFullPage div ends-->
+
+
+
+
+    <link rel="stylesheet" href="jq/jqueryUI/jquery-ui.min.css">
+    <script src="jq/jqueryCORE/jquery-3.6.1.min.js"></script>
+    <script src="jq/jqueryUI/jquery-ui.min.js"></script>
+    <script defer src="js/script.js"></script>
+
+</body>
+
+</html>

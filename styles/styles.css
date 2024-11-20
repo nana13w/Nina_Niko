@@ -1,0 +1,558 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 90vh;
+    /* visible on full screen */
+    width: 90vw;
+    /* visible on full screen */
+    background-position: center;
+    /* center the imageF */
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+header {
+    margin: 10px;
+    margin-top: 10px;
+    height: 10vh;
+    width: 98vw;
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-family: "Modak", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #a31616ed;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #323232;
+    letter-spacing: 1px;
+    padding-top: 15px;
+
+}
+
+
+h2 {
+    border: 2px solid #333333;
+    border-radius: 5px;
+    background-color: #00cb5fba;
+    padding: 5px 15px;
+    font-size: 2em;
+    margin-left: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: auto;
+}
+
+.timer {
+    font-size: 1em;
+    padding-left: 10px;
+}
+
+.score {
+    font-size: 1em;
+    padding-left: 0;
+
+}
+
+.heart {
+    max-width: 40px;
+    width: 100%;
+    height: auto;
+}
+
+.timer_score {
+    display: block;
+    max-height: 50px;
+    max-width: 350px;
+    width: auto;
+    align-items: center;
+    align-content: center;
+
+}
+
+/* audio styles */
+#audioContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 20px;
+
+}
+
+#audioBtn {
+    width: 50px;
+    height: 50px;
+    background-color: #00CB5E;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#audioBtn:hover {
+    background-color: #31ff91;
+    transform: scale(1.1);
+}
+
+#audioBtn>i {
+    color: #ffffff;
+    font-size: 2.5em;
+}
+
+/* Start Overlayes - Full Screen Background */
+#startBathroomOverlay,
+#startBedroomOverlay,
+#startKitchenOverlay,
+#startLivingroomOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* start button */
+#startBathroomButton,
+#startKitchenButton,
+#startBedroomButton,
+#startLivingroomButton {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    /* round shape */
+    background-color: #00CB5E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#startBathroomButton:hover,
+#startKitchenButton:hover,
+#startBedroomButton:hover,
+#startLivingroomButton:hover {
+    background-color: #31ff91;
+    transform: scale(1.1);
+}
+
+#startBathroomButton i,
+#startKitchenButton i,
+#startBedroomButton i,
+#startLivingroomButton i {
+    font-size: 10em;
+    color: #fff;
+    pointer-events: none;
+    /* ensures nothing will happen if pressed */
+}
+
+
+
+.fullPage {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.leftSide {
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    margin-left: 30px;
+}
+
+.leftTop {
+    height: 40%;
+    display: flex;
+    position: relative;
+}
+
+.leftBottom {
+    display: flex;
+    align-items: flex-end;
+    padding-top: 10px;
+}
+
+.character {
+
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    /*Smooth transition */
+}
+
+.character:hover {
+    transform: scale(1.1);
+}
+
+.girlDiv,
+.boyDiv {
+    padding-bottom: 0px;
+    display: flex;
+}
+
+
+.leftCloud {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.rightCloud {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.rightSide {
+    height: 90%;
+    max-width: 60%;
+    display: flex;
+    align-items: center;
+    align-content: center
+}
+
+.house {
+    margin-left: 30px;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    width: 90%;
+}
+
+.topHouse {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.bottomHouse {
+    display: flex;
+    flex-direction: row;
+}
+
+.houseRoof {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.roof {
+    width: 106%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    display: flex;
+}
+
+.room {
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    /*Smooth transition */
+}
+
+.room:hover {
+    transform: scale(1.1);
+}
+
+.topHouseRooms {
+    width: 50%;
+}
+
+
+/* ROOM PAGE */
+.page {
+    display: flex;
+    width: 99%;
+    border-radius: 15px;
+    border: 4px solid #ffffff61;
+    padding-bottom: 15px;
+}
+
+.leftPage {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+}
+
+.characterContainer img {
+
+    display: flex;
+    width: auto;
+    height: auto;
+    max-height: 350px;
+    margin: auto;
+
+}
+
+.happyG {
+    position: absolute;
+    margin: auto;
+    z-index: 1;
+    visibility: hidden;
+}
+
+.sadG {
+    z-index: 2;
+    visibility: hidden;
+}
+
+
+.bathroomFullPage,
+.kitchenFullPage,
+.bedroomFullPage,
+.livingroomFullPage {
+    max-height: 100%;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    justify-content: center;
+    margin-right: 10px;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+.dropZone {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(5, 1fr);
+
+    /* Set exactly 5 items per row */
+    gap: 10px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    z-index: 0;
+}
+
+.fadedElements {
+    display: flex;
+    /* Use flex to center the image */
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+    /* Control width */
+    max-height: 200px;
+    /* Control height */
+    /* Visual for debugging */
+    transition: transform 0.3s ease;
+    /* Smooth rotation transition */
+    margin: 20px;
+    position: relative;
+    /* Ensure they can accept drops */
+    z-index: 10;
+    /* Bring them above other elements */
+    padding: 10px;
+
+}
+
+
+.fadedElements img {
+    max-height: 150px;
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    height: 20%;
+    /* Set height */
+    width: 96%;
+    /* Full width */
+    display: flex;
+    justify-content: space-evenly;
+    /* Space evenly */
+    align-items: center;
+    /* Center items */
+    border: 2px solid #ffffff61;
+    background-color: #ffffff61;
+    margin: auto;
+    z-index: 1;
+}
+
+.elements {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.elements img {
+    max-height: 100px;
+    width: 80%;
+    height: auto;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stars img {
+    height: 250px;
+}
+
+.highlight {
+    opacity: 1;
+
+}
+
+@media only screen and (max-width: 1500px) {
+
+    h1 {
+        margin-left: 200px;
+        font-size: 3em;
+    }
+
+
+    h2 {
+        font-size: 1.5em;
+        width: 130px;
+        padding: 4px;
+    }
+
+    .hTimer {
+        margin-bottom: -15px;
+    }
+
+    .timer,
+    .score {
+        font-size: 1em;
+    }
+
+    .timer_score {
+        display: block;
+    }
+
+    .characterContainer img {
+        max-height: 330px;
+
+    }
+
+}
+
+@media only screen and (max-width:1250px) {
+
+    h1 {
+        font-size: 2.5em;
+        margin-left: 140px;
+    }
+
+    .characterContainer img {
+        max-height: 310px;
+
+    }
+}
+
+@media only screen and (max-width: 1165px) {
+
+    .characterContainer img {
+        max-height: 280px;
+
+    }
+}
+
+@media only screen and (max-width: 1045px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .characterContainer img {
+        max-height: 250px;
+
+    }
+}
+
+@media only screen and (max-width: 950px) {
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .characterContainer img {
+        max-height: 200px;
+
+    }
+}
+
+@media only screen and (max-width: 775px) {
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .characterContainer img {
+        max-height: 160px;
+
+    }
+}
+
+@media only screen and (max-width: 645px) {
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    .characterContainer img {
+        max-height: 150px;
+
+    }
+}
+
+@media only screen and (max-width: 620px) {
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    .characterContainer img {
+        max-height: 120px;
+
+    }
+}
