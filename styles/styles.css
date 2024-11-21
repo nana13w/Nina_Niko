@@ -11,7 +11,7 @@ body {
     /* center the imageF */
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 0;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -116,6 +116,42 @@ h2 {
     font-size: 2.5em;
 }
 
+#gameOver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#gameOverBtn {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    /* round shape */
+    background-color: #ff4242;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#gameOverBtn:hover {
+    background-color: #f76161;
+    transform: scale(1.1);
+}
+
+#gameOverBtn>i {
+    font-size: 10em;
+    color: #fff;
+}
 /* Start Overlayes - Full Screen Background */
 #startBathroomOverlay,
 #startBedroomOverlay,
@@ -297,10 +333,11 @@ h2 {
 /* ROOM PAGE */
 .page {
     display: flex;
-    width: 99%;
+    width: 100%;
     border-radius: 15px;
     border: 4px solid #ffffff61;
     padding-bottom: 15px;
+    margin: auto;
 }
 
 .leftPage {

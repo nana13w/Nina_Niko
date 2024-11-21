@@ -1,6 +1,7 @@
 $(document).ready(() => {
     //global variable
-    let mist = 0;
+    let score = 0;
+    let mistake = 0;
     let bathroomTimer;
     let bedroomTimer;
     let kitchenTimer;
@@ -152,20 +153,22 @@ function handleOverEvent (event, ui) {
         //Hide character when hovering over
                $("#happyG").css("visibility", "hidden");     
                $("#sadG").css("visibility", "hidden");
-
-    };
+    }; // end of over event
     function handleOutEvent (event, ui) {
         $(this).removeClass("highlight");
 
         // Hide character when the element leaves the droppable area
         $("#happyG").css("visibility", "hidden");     
         $("#sadG").css("visibility", "hidden");
-    };
+    }; // end of out event
    function handleDropEvent (event, ui) {
         const droppedId = ui.draggable.attr("id"); // Get the ID of the dropped element
         const droppableId = $(this).attr("id");
 
+        score ++;
+
         console.log(`Dropped ID: ${droppedId}, Droppable ID: ${droppableId}`); // Debugging log
+        console.log("Dropped inside the zone. Points " + score);
 
         if (itemImages[droppedId] && droppableId.includes(droppedId)) {
             $(this).attr("src", itemImages[droppedId]); // Set the image source based on the dropped item
@@ -176,14 +179,46 @@ function handleOverEvent (event, ui) {
 
         } else {
             $("#sadG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
-
-            mistake ++
         }
 
         $(this).removeClass("highlight"); // Remove the highlight when drop is done
-    }
+    } // end of drop event fir correct matching
 
 
+    $(".dropZone").droppable({
+        // Restrict to specific items and match the draggable items id
+        accept: ".dragElement",
+        drop: function (event, ui) {
+            mistake++;
+            console.log("Dropped outside the zone. Mistakes: " + mistake);
+
+            ui.draggable.css("visibility", "hidden"); // Hide the original draggable element to avoid duplication
+            
+            if (mistake === 1) {
+                $("#sadG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
+                $("#heart3").css("visibility", "hidden").fadeOut(300);
+            }
+            else if (mistake === 2) {
+                $("#sadG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
+                $("#heart2").css("visibility", "hidden").fadeOut(300);
+            } else {
+                $("#sadG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
+                $("#heart1").css("visibility", "hidden").fadeOut(300);
+                $("#gameOver").css("visibility", "visible").fadeIn(1500).delay(500);
+                //Gary - this doesn't fadeIn it just display without fadding in...
+                //Gary - this doesn't fadeIn it just display without fadding in...
+                //Gary - this doesn't fadeIn it just display without fadding in...
+                //Gary - this doesn't fadeIn it just display without fadding in...
+                //Gary - this doesn't fadeIn it just display without fadding in...
+                //Gary - this doesn't fadeIn it just display without fadding in...
+                //Gary - this doesn't fadeIn it just display without fadding in...
+                //Gary - this doesn't fadeIn it just display without fadding in...
+                
+
+
+            }
+        }
+    }); // end of mistake counting
 
 
     // bathroom game
@@ -223,7 +258,7 @@ function handleOverEvent (event, ui) {
         }, 1000)
     }; //end of bathroom game
 
-
+ 
 
     // bedroom game
     $("#openStartBedroom").on("click", startBedroom);
