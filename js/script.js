@@ -141,6 +141,7 @@ $(document).ready(() => {
             // Only allow drop if the draggable item matches the item for this droppable area
             return itemImages[draggedId] && droppableId.includes(draggedId); // Ensures only the correct item is dropped here
         },
+        greedy: true, // Prevent event bubbling
         activeClass: "highlight", // Highlight the droppable area when the draggable is over it    
         over: handleOverEvent,
         out: handleOutEvent,
@@ -164,7 +165,6 @@ function handleOverEvent (event, ui) {
    function handleDropEvent (event, ui) {
         const droppedId = ui.draggable.attr("id"); // Get the ID of the dropped element
         const droppableId = $(this).attr("id");
-
         score ++;
 
         console.log(`Dropped ID: ${droppedId}, Droppable ID: ${droppableId}`); // Debugging log
@@ -187,10 +187,18 @@ function handleOverEvent (event, ui) {
 
     $(".dropZone").droppable({
         // Restrict to specific items and match the draggable items id
-        accept: ".dragElement",
+        accept: "[data-type='dragElement']",
         drop: function (event, ui) {
-            mistake++;
-            console.log("Dropped outside the zone. Mistakes: " + mistake);
+            const $draggable = $(ui.draggable);
+
+            // Check if the drop happened directly in `.game-area`, not in `.drop-zone`
+            const isInDropZone =
+              $draggable.hasClass("ui-draggable-dragging") &&
+              $(".dropZone").has(ui.helper).length;
+              if (!isInDropZone) {
+             mistake++;
+            console.log("Dropped outside the zone. Mistakes: " + mistake);               
+              }
 
             ui.draggable.css("visibility", "hidden"); // Hide the original draggable element to avoid duplication
             

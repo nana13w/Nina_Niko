@@ -21,7 +21,7 @@ header {
     margin: 10px;
     margin-top: 10px;
     height: 10vh;
-    width: 98vw;
+    width: 100%;
     align-content: center;
     display: flex;
     justify-content: space-between;
@@ -51,10 +51,13 @@ h2 {
     padding: 5px 15px;
     font-size: 2em;
     margin-left: 20px;
+    margin-bottom: 5px;
+    margin-top: 10px;
     text-align: center;
     display: flex;
     align-items: center;
     align-content: center;
+    justify-content: center;
     width: auto;
 }
 
@@ -63,16 +66,16 @@ h2 {
     padding-left: 10px;
 }
 
-.score {
-    font-size: 1em;
-    padding-left: 0;
-
+.hearts {
+display: flex;
+    flex-direction: row;
 }
 
 .heart {
     max-width: 40px;
-    width: 100%;
+    width: auto;
     height: auto;
+
 }
 
 .timer_score {
@@ -406,6 +409,7 @@ h2 {
     width: 100%;
     max-width: 100%;
     height: auto;
+    
     z-index: 0;
 }
 
@@ -490,22 +494,22 @@ h2 {
 
     h2 {
         font-size: 1.5em;
-        width: 130px;
-        padding: 4px;
+        padding-right: 10px;
+        padding-left: 10px;
     }
-
-    .hTimer {
-        margin-bottom: -15px;
-    }
-
-    .timer,
-    .score {
+    
+    .timer {
         font-size: 1em;
+        padding-left: 10px;
     }
 
     .timer_score {
         display: block;
     }
+        
+        .heart {
+            max-width: 35px;
+        }
 
     .characterContainer img {
         max-height: 330px;
@@ -520,6 +524,14 @@ h2 {
         font-size: 2.5em;
         margin-left: 140px;
     }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+        .heart {
+            max-width: 30px;
+        }
 
     .characterContainer img {
         max-height: 310px;
@@ -540,6 +552,14 @@ h2 {
         font-size: 2.5em;
     }
 
+    h2 {
+        font-size: 1.2em;
+    }
+
+        .heart {
+            max-width: 25px;
+        }
+        
     .characterContainer img {
         max-height: 250px;
 
@@ -551,6 +571,14 @@ h2 {
     h1 {
         font-size: 2em;
     }
+
+h2 {
+        font-size: 1.1em;
+    }
+
+        .heart {
+            max-width: 23px;
+        }
 
     .characterContainer img {
         max-height: 200px;
@@ -564,6 +592,14 @@ h2 {
         font-size: 1.5em;
     }
 
+    h2 {
+        font-size: 1em;
+    }
+
+        .heart {
+            max-width: 20px;
+        }
+
     .characterContainer img {
         max-height: 160px;
 
@@ -576,6 +612,14 @@ h2 {
         font-size: 1.3em;
     }
 
+    h2 {
+        font-size: 0.9em;
+    }
+
+        .heart {
+            max-width: 18px;
+        }
+
     .characterContainer img {
         max-height: 150px;
 
@@ -587,6 +631,14 @@ h2 {
     h1 {
         font-size: 1.3em;
     }
+
+    h2 {
+        font-size: 0.8em;
+    }
+
+        .heart {
+            max-width: 16px;
+        }
 
     .characterContainer img {
         max-height: 120px;
