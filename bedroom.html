@@ -7,6 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Modak&family=New+Amsterdam&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Modak&family=New+Amsterdam&display=swap"
+        rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
     <link rel="stylesheet" href="styles/styles.css">
     <title>Nina & Niko's Tidy-Up Adventure - Kitchen</title>
@@ -14,10 +19,22 @@
 
 <body background="images/background.jpg">
 
+    <div id="gameOver" style="visibility: hidden;">
+        <p id="gameOverP" style="visibility: hidden">Game Over <br> Try Again</p>
+        <br><br>
+        <button type="button" id="gameOverBtn"><i class="fas fa-ghost"></i></button>
+    </div>
+
+    <div id="rotateMessage" style="display: none;">
+        <p>Please rotate your device. </p>
+        <br><br>
+        <i class="fas fa-sync-alt"></i>
+    </div>
+
     <header>
 
         <div></div>
-        
+
         <div>
             <h1>Nina & Nico’s Tidy-Up Adventure</h1>
         </div>
@@ -34,14 +51,14 @@
 
         <div class="leftPage">
             <div class="timer_score">
-                <h2 class="hTimer">TIME: <span class="timer" id="bedroomTimer"></span></h2>
+                <h2 class="hTimer">TIME: <span class="timer" id="bedroomTimer"></span>65</h2>
 
-                    <h2>
-                        <img class="heart" id="heart1" src="images/heart.png" alt="heart">
-                        <img class="heart" id="heart2" src="images/heart.png" alt="heart">
-                        <img class="heart" id="heart3" src="images/heart.png" alt="heart"> <span class="score"
-                            id="bedroomScore"></span>
-                    </h2>
+                <h2>
+                    <img class="heart" id="heart1" src="images/heart.png" alt="heart">
+                    <img class="heart" id="heart2" src="images/heart.png" alt="heart">
+                    <img class="heart" id="heart3" src="images/heart.png" alt="heart"> <span class="score"
+                        id="bedroomScore"></span>
+                </h2>
             </div>
 
             <div class="characterContainer">

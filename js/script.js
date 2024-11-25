@@ -2,6 +2,7 @@ $(document).ready(() => {
     //global variable
     let score = 0;
     let mistake = 0;
+    let totalDraggables = $('.dragElement').length; // Count all draggable elements
     let bathroomTimer;
     let bedroomTimer;
     let kitchenTimer;
@@ -14,6 +15,12 @@ $(document).ready(() => {
     startBedroomTimer();
     startKitchenTimer();
     startLivingroomTimer();
+
+    //Submit name
+    const nameSub = $("nameSub");
+    nameSub.on("click", function () {
+
+    })
 
     const $fadedElements = $(".fadedElements");
     const shuffledElements = $fadedElements.toArray().sort(() => Math.random() - 0.5);  // Shuffle the faded elements
@@ -178,10 +185,17 @@ function handleOverEvent (event, ui) {
             $("#happyG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
 
         } else {
+            
             $("#sadG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
         }
 
+        if (score === totalDraggables) {
+            // All draggables are dropped, open a new window
+            window.location.href = 'index.html'; // Replace with your URL
+        }
+
         $(this).removeClass("highlight"); // Remove the highlight when drop is done
+
     } // end of drop event fir correct matching
 
 
@@ -200,7 +214,7 @@ function handleOverEvent (event, ui) {
             console.log("Dropped outside the zone. Mistakes: " + mistake);               
               }
 
-            ui.draggable.css("visibility", "hidden"); // Hide the original draggable element to avoid duplication
+            ui.draggable.css("visibility", "visible"); // Hide the original draggable element to avoid duplication
             
             if (mistake === 1) {
                 $("#sadG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
@@ -212,6 +226,7 @@ function handleOverEvent (event, ui) {
             } else {
                 $("#sadG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
                 $("#heart1").css("visibility", "hidden").fadeOut(300);
+                $("#gameOverP").css("visibility", "visible").fadeIn(1500).delay(500);
                 $("#gameOver").css("visibility", "visible").fadeIn(1500).delay(500);
                 //Gary - this doesn't fadeIn it just display without fadding in...
                 //Gary - this doesn't fadeIn it just display without fadding in...
@@ -222,7 +237,9 @@ function handleOverEvent (event, ui) {
                 //Gary - this doesn't fadeIn it just display without fadding in...
                 //Gary - this doesn't fadeIn it just display without fadding in...
                 
-
+let gameOver = $("#gameOver").on("click", function () {
+    location.reload(true);
+}); //end of gameOver function
 
             }
         }
@@ -254,7 +271,7 @@ function handleOverEvent (event, ui) {
 
     //Function timer
     function startBathroomTimer() {
-        bathroomCounter = 80;
+        bathroomCounter = 70;
         bathroomTimer = setInterval(function () {
             bathroomCounter--;
             if (bathroomCounter >= 0) {
@@ -385,6 +402,22 @@ function handleOverEvent (event, ui) {
     }; //end of livingroom game
 
 
+    // Function to rotate if screen width is smaller than 800px
+    function checkScreenWidth() {
+        const rotateMessage = document.getElementById("rotateMessage");
+    
+        if (window.innerWidth < 800 && window.innerHeight > window.innerWidth) {
+            // Show the rotate message for portrait mode with width < 800px
+            rotateMessage.style.display = "flex";
+        } else {
+            // Hide the message in other cases
+            rotateMessage.style.display = "none";
+        }
+    }; // end of rotate function
+    
+    // Run the check on load and on window resize
+    window.addEventListener("load", checkScreenWidth);
+    window.addEventListener("resize", checkScreenWidth);
 }); //end ready
 
 

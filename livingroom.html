@@ -7,6 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Modak&family=New+Amsterdam&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Modak&family=New+Amsterdam&display=swap"
+        rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
     <link rel="stylesheet" href="styles/styles.css">
     <title>Nina & Niko's Tidy-Up Adventure - Kitchen</title>
@@ -14,10 +19,22 @@
 
 <body background="images/background.jpg">
 
+    <div id="gameOver" style="visibility: hidden;">
+        <p id="gameOverP" style="visibility: hidden">Game Over <br> Try Again</p>
+        <br><br>
+        <button type="button" id="gameOverBtn"><i class="fas fa-ghost"></i></button>
+    </div>
+
+    <div id="rotateMessage" style="display: none;">
+        <p>Please rotate your device. </p>
+        <br><br>
+        <i class="fas fa-sync-alt"></i>
+    </div>
+
     <header>
 
         <div></div>
-        
+
         <div>
             <h1>Nina & Nico’s Tidy-Up Adventure</h1>
         </div>
@@ -34,7 +51,7 @@
 
         <div class="leftPage">
             <div class="timer_score">
-                <h2 class="hTimer">TIME: <span class="timer" id="blivingroomTimer"></span></h2>
+                <h2 class="hTimer">TIME: <span class="timer" id="blivingroomTimer"></span>40</h2>
 
                 <h2>
                     <img class="heart" id="heart1" src="images/heart.png" alt="heart">
@@ -53,172 +70,178 @@
         </div>
 
 
-    <div class="livingroomFullPage">
+        <div class="livingroomFullPage">
 
-        <div class="dropZone" id="dropZone">
+            <div class="dropZone" id="dropZone">
 
-            <span class="fadedElements">
-                <img class="droppableFaded" id="bookShelfFaded" src="images/livingroom/bookShelfFaded.png"
-                    alt="Faded image of a book shelf">
-            </span>
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="bookShelfFaded" src="images/livingroom/bookShelfFaded.png"
+                        alt="Faded image of a book shelf">
+                </span>
 
-            <span class="fadedElements">
-                <img class="droppableFaded" id="chairFaded" src="images/livingroom/chairFaded.png"
-                    alt="Faded image of a chair">
-            </span>
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="chairFaded" src="images/livingroom/chairFaded.png"
+                        alt="Faded image of a chair">
+                </span>
 
-            <span class="fadedElements">
-                <img class="droppableFaded" id="lampFaded" src="images/livingroom/lampFaded.png"
-                    alt="Faded image of a lamp">
-            </span>
-
-
-            <span class="fadedElements">
-                <img class="droppableFaded" id="paintFaded" src="images/livingroom/paintFaded.png"
-                    alt="Faded image of a paint">
-            </span>
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="lampFaded" src="images/livingroom/lampFaded.png"
+                        alt="Faded image of a lamp">
+                </span>
 
 
-            <span class="fadedElements">
-                <img class="droppableFaded" id="booksFaded" src="images/livingroom/booksFaded.png"
-                    alt="Faded image of books">
-            </span>
-
-            <span class="fadedElements">
-                <img class="droppableFaded" id="pillowFadedLiv" src="images/livingroom/pillowsFaded.png"
-                    alt="Faded image of pillow">
-            </span>
-
-            <span class="fadedElements">
-                <img class="droppableFaded" id="photoFaded" src="images/livingroom/photoFaded.png"
-                    alt="Faded image of a photo">
-            </span>
-
-            <span class="fadedElements">
-                <img class="droppableFaded" id="shelfFaded" src="images/livingroom/shelfFaded.png"
-                    alt="Faded image of a shelf">
-            </span>
-
-            <span class="fadedElements">
-                <img class="droppableFaded" id="smallShelfFaded" src="images/livingroom/smallShelfFaded.png"
-                    alt="Faded image of small shelf">
-            </span>
-
-            <span class="fadedElements">
-                <img class="droppableFaded" id="plantFaded" src="images/livingroom/plantFaded.png"
-                    alt="Faded image of a plant">
-            </span>
-
-            <span class="fadedElements">
-                <img class="droppableFaded" id="sofaFaded" src="images/livingroom/sofaFaded.png"
-                    alt="Faded image of a sofa">
-            </span>
-
-            <span class="fadedElements">
-                <img class="droppableFaded" id="tableFaded" src="images/livingroom/tableFaded.png"
-                    alt="Faded image of a table">
-            </span>
-
-            <span class="fadedElements">
-                <img class="droppableFaded" id="tvFadedLiv" src="images/livingroom/tvFaded.png"
-                    alt="Faded image of a tv">
-            </span>
-
-            <span class="fadedElements">
-                <img class="droppableFaded" id="vaseFaded" src="images/livingroom/vaseFaded.png"
-                    alt="Faded image of a vase">
-            </span>
-
-            <span class="fadedElements">
-                <img class="droppableFaded" id="blanketFaded" src="images/livingroom/blanketFaded.png"
-                    alt="Faded image of a blanket">
-            </span>
-
-        </div> <!--dropZone div ends-->
-
-        <div class="container" id="container">
-            <span class="elements">
-                <img class="books dragElement" id="books" src="images/livingroom/books.png" alt="An image of books">
-            </span>
-
-            <span class="elements">
-                <img class="bookShelf dragElement" id="bookShelf" src="images/livingroom/bookShelf.png"
-                    alt="An image of a book shelf">
-            </span>
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="paintFaded" src="images/livingroom/paintFaded.png"
+                        alt="Faded image of a paint">
+                </span>
 
 
-            <span class="elements">
-                <img class="chair dragElement" id="chair" src="images/livingroom/chair.png" alt="An image of a chair">
-            </span>
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="booksFaded" src="images/livingroom/booksFaded.png"
+                        alt="Faded image of books">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="pillowFadedLiv" src="images/livingroom/pillowsFaded.png"
+                        alt="Faded image of pillow">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="photoFaded" src="images/livingroom/photoFaded.png"
+                        alt="Faded image of a photo">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="shelfFaded" src="images/livingroom/shelfFaded.png"
+                        alt="Faded image of a shelf">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="smallShelfFaded" src="images/livingroom/smallShelfFaded.png"
+                        alt="Faded image of small shelf">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="plantFaded" src="images/livingroom/plantFaded.png"
+                        alt="Faded image of a plant">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="sofaFaded" src="images/livingroom/sofaFaded.png"
+                        alt="Faded image of a sofa">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="tableFaded" src="images/livingroom/tableFaded.png"
+                        alt="Faded image of a table">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="tvFadedLiv" src="images/livingroom/tvFaded.png"
+                        alt="Faded image of a tv">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="vaseFaded" src="images/livingroom/vaseFaded.png"
+                        alt="Faded image of a vase">
+                </span>
+
+                <span class="fadedElements">
+                    <img class="droppableFaded" id="blanketFaded" src="images/livingroom/blanketFaded.png"
+                        alt="Faded image of a blanket">
+                </span>
+
+            </div> <!--dropZone div ends-->
+
+            <div class="container" id="container">
+                <span class="elements">
+                    <img class="books dragElement" id="books" src="images/livingroom/books.png" alt="An image of books">
+                </span>
+
+                <span class="elements">
+                    <img class="bookShelf dragElement" id="bookShelf" src="images/livingroom/bookShelf.png"
+                        alt="An image of a book shelf">
+                </span>
 
 
-            <span class="elements">
-                <img class="lamp dragElement" id="lamp" src="images/livingroom/lamp.png" alt="An image of a lamp">
-            </span>
+                <span class="elements">
+                    <img class="chair dragElement" id="chair" src="images/livingroom/chair.png"
+                        alt="An image of a chair">
+                </span>
 
 
-            <span class="elements">
-                <img class="paint dragElement" id="paint" src="images/livingroom/paint.png" alt="An image of a paint">
-            </span>
-
-            <span class="elements">
-                <img class="photo dragElement" id="photo" src="images/livingroom/photo.png" alt="An image of a photo">
-            </span>
+                <span class="elements">
+                    <img class="lamp dragElement" id="lamp" src="images/livingroom/lamp.png" alt="An image of a lamp">
+                </span>
 
 
-            <span class="elements">
-                <img class="pillowLiv dragElement" id="pillowLiv" src="images/livingroom/pillows.png"
-                    alt="An image of a pillows">
-            </span>
+                <span class="elements">
+                    <img class="paint dragElement" id="paint" src="images/livingroom/paint.png"
+                        alt="An image of a paint">
+                </span>
+
+                <span class="elements">
+                    <img class="photo dragElement" id="photo" src="images/livingroom/photo.png"
+                        alt="An image of a photo">
+                </span>
 
 
-            <span class="elements">
-                <img class="plant dragElement" id="plant" src="images/livingroom/plant.png" alt="An image of a plant">
-            </span>
-
-            <span class="elements">
-                <img class="shelf dragElement" id="shelf" src="images/livingroom/shelf.png" alt="An image of a shelf">
-            </span>
+                <span class="elements">
+                    <img class="pillowLiv dragElement" id="pillowLiv" src="images/livingroom/pillows.png"
+                        alt="An image of a pillows">
+                </span>
 
 
-            <span class="elements">
-                <img class="smallShelf dragElement" id="smallShelf" src="images/livingroom/smallShelf.png"
-                    alt="An image of a small shelf">
-            </span>
+                <span class="elements">
+                    <img class="plant dragElement" id="plant" src="images/livingroom/plant.png"
+                        alt="An image of a plant">
+                </span>
+
+                <span class="elements">
+                    <img class="shelf dragElement" id="shelf" src="images/livingroom/shelf.png"
+                        alt="An image of a shelf">
+                </span>
 
 
-            <span class="elements">
-                <img class="blanket dragElement" id="blanket" src="images/livingroom/blanket.png"
-                    alt="An image of a blanket">
-            </span>
-
-            <span class="elements">
-                <img class="sofa dragElement" id="sofa" src="images/livingroom/sofa.png" alt="An image of a sofa">
-            </span>
+                <span class="elements">
+                    <img class="smallShelf dragElement" id="smallShelf" src="images/livingroom/smallShelf.png"
+                        alt="An image of a small shelf">
+                </span>
 
 
-            <span class="elements">
-                <img class="table dragElement" id="table" src="images/livingroom/table.png" alt="An image of a table">
-            </span>
+                <span class="elements">
+                    <img class="blanket dragElement" id="blanket" src="images/livingroom/blanket.png"
+                        alt="An image of a blanket">
+                </span>
 
-            <span class="elements">
-                <img class="tvLiv dragElement" id="tvLiv" src="images/livingroom/tv.png" alt="An image of a tv">
-            </span>
-
-            <span class="elements">
-                <img class="vase dragElement" id="vase" src="images/livingroom/vase.png" alt="An image of a vase">
-            </span>
-
-        </div> <!--container div end-->
-    </div> <!--kitchenFullPage div ends-->
+                <span class="elements">
+                    <img class="sofa dragElement" id="sofa" src="images/livingroom/sofa.png" alt="An image of a sofa">
+                </span>
 
 
+                <span class="elements">
+                    <img class="table dragElement" id="table" src="images/livingroom/table.png"
+                        alt="An image of a table">
+                </span>
+
+                <span class="elements">
+                    <img class="tvLiv dragElement" id="tvLiv" src="images/livingroom/tv.png" alt="An image of a tv">
+                </span>
+
+                <span class="elements">
+                    <img class="vase dragElement" id="vase" src="images/livingroom/vase.png" alt="An image of a vase">
+                </span>
+
+            </div> <!--container div end-->
+        </div> <!--kitchenFullPage div ends-->
 
 
-    <link rel="stylesheet" href="jq/jqueryUI/jquery-ui.min.css">
-    <script src="jq/jqueryCORE/jquery-3.6.1.min.js"></script>
-    <script src="jq/jqueryUI/jquery-ui.min.js"></script>
-    <script defer src="js/script.js"></script>
+
+
+        <link rel="stylesheet" href="jq/jqueryUI/jquery-ui.min.css">
+        <script src="jq/jqueryCORE/jquery-3.6.1.min.js"></script>
+        <script src="jq/jqueryUI/jquery-ui.min.js"></script>
+        <script defer src="js/script.js"></script>
 
 </body>
 

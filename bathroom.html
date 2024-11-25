@@ -7,6 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Modak&family=New+Amsterdam&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Modak&family=New+Amsterdam&display=swap"
+        rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
     <link rel="stylesheet" href="styles/styles.css">
     <title>Nina & Niko's Tidy-Up Adventure - Bathroom</title>
@@ -16,11 +21,19 @@
 <body background="images/background.jpg">
 
     <div id="gameOver" style="visibility: hidden;">
+        <p id="gameOverP" style="visibility: hidden">Game Over <br> Try Again</p>
+        <br><br>
         <button type="button" id="gameOverBtn"><i class="fas fa-ghost"></i></button>
     </div>
 
+    <div id="rotateMessage" style="display: none;">
+        <p>Please rotate your device. </p>
+        <br><br>
+        <i class="fas fa-sync-alt"></i>
+    </div>
+
     <header>
-        <div></div>
+        <div style="width: 50px;"></div>
 
         <div>
             <h1>Nina & Nico’s Tidy-Up Adventure</h1>
@@ -38,14 +51,15 @@
 
         <div class="leftPage">
             <div class="timer_score">
-                <h2 class="hTimer">TIME: <span class="timer" id="bathroomTimer">80</span></h2>
+                <h2 class="hTimer">TIME: <span class="timer" id="bathroomTimer">70</span></h2>
 
                 <h2>
                     <div class="hearts">
-                    <img class="heart" id="heart1" src="images/heart.png" alt="heart">
-                    <img class="heart" id="heart2" src="images/heart.png" alt="heart">
-                    <img class="heart" id="heart3" src="images/heart.png" alt="heart"> <span class="score"
-                        id="bathroomScore"></span></div>
+                        <img class="heart" id="heart1" src="images/heart.png" alt="heart">
+                        <img class="heart" id="heart2" src="images/heart.png" alt="heart">
+                        <img class="heart" id="heart3" src="images/heart.png" alt="heart"> <span class="score"
+                            id="bathroomScore"></span>
+                    </div>
                 </h2>
             </div>
 
@@ -150,7 +164,8 @@
 
             <div class="container" id="container">
                 <span class="elements">
-                    <img class="bath dragElement" id="bath" data-type='dragElement' src="images/bathroom/bath.png" alt="An image of a bath">
+                    <img class="bath dragElement" id="bath" data-type='dragElement' src="images/bathroom/bath.png"
+                        alt="An image of a bath">
                 </span>
 
                 <span class="elements">
@@ -160,7 +175,8 @@
 
 
                 <span class="elements">
-                    <img class="duck dragElement" id="duck" data-type='dragElement' src="images/bathroom/duck.png" alt="An image of a duck">
+                    <img class="duck dragElement" id="duck" data-type='dragElement' src="images/bathroom/duck.png"
+                        alt="An image of a duck">
                 </span>
 
 
@@ -171,18 +187,19 @@
 
 
                 <span class="elements">
-                    <img class="oneTowel dragElement" id="oneTowel" data-type='dragElement' src="images/bathroom/oneTowel.png"
-                        alt="An image of a towel">
+                    <img class="oneTowel dragElement" id="oneTowel" data-type='dragElement'
+                        src="images/bathroom/oneTowel.png" alt="An image of a towel">
                 </span>
 
                 <span class="elements">
-                    <img class="robe dragElement" id="robe" data-type='dragElement' src="images/bathroom/robe.png" alt="An image of a robe">
+                    <img class="robe dragElement" id="robe" data-type='dragElement' src="images/bathroom/robe.png"
+                        alt="An image of a robe">
                 </span>
 
 
                 <span class="elements">
-                    <img class="shampoo dragElement" id="shampoo" data-type='dragElement' src="images/bathroom/shampoo.png"
-                        alt="An image of a shampoo">
+                    <img class="shampoo dragElement" id="shampoo" data-type='dragElement'
+                        src="images/bathroom/shampoo.png" alt="An image of a shampoo">
                 </span>
 
 
@@ -192,12 +209,14 @@
                 </span>
 
                 <span class="elements">
-                    <img class="sink dragElement" id="sink" data-type='dragElement' src="images/bathroom/sink.png" alt="An image of a sink">
+                    <img class="sink dragElement" id="sink" data-type='dragElement' src="images/bathroom/sink.png"
+                        alt="An image of a sink">
                 </span>
 
 
                 <span class="elements">
-                    <img class="soap dragElement" id="soap" data-type='dragElement' src="images/bathroom/soap.png" alt="An image of a soap">
+                    <img class="soap dragElement" id="soap" data-type='dragElement' src="images/bathroom/soap.png"
+                        alt="An image of a soap">
                 </span>
 
 
@@ -207,20 +226,20 @@
                 </span>
 
                 <span class="elements">
-                    <img class="toiletRoll dragElement" id="toiletRoll" data-type='dragElement' src="images/bathroom/toiletRoll.png"
-                        alt="An image of a toilet roll">
+                    <img class="toiletRoll dragElement" id="toiletRoll" data-type='dragElement'
+                        src="images/bathroom/toiletRoll.png" alt="An image of a toilet roll">
                 </span>
 
 
                 <span class="elements">
-                    <img class="toothbrush dragElement" id="toothbrush" data-type='dragElement' src="images/bathroom/toothbrush.png"
-                        alt="An image of a toothbrush">
+                    <img class="toothbrush dragElement" id="toothbrush" data-type='dragElement'
+                        src="images/bathroom/toothbrush.png" alt="An image of a toothbrush">
                 </span>
 
 
                 <span class="elements">
-                    <img class="toothpaste dragElement" id="toothpaste" data-type='dragElement'  src="images/bathroom/toothpaste.png"
-                        alt="An image of a toothpaste">
+                    <img class="toothpaste dragElement" id="toothpaste" data-type='dragElement'
+                        src="images/bathroom/toothpaste.png" alt="An image of a toothpaste">
                 </span>
 
 

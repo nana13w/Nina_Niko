@@ -67,7 +67,7 @@ h2 {
 }
 
 .hearts {
-display: flex;
+    display: flex;
     flex-direction: row;
 }
 
@@ -129,7 +129,17 @@ display: flex;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     z-index: 999;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+
+#gameOver p {
+    margin-bottom: 0;
+    font-family: "Hanken Grotesk", sans-serif;
 }
 
 #gameOverBtn {
@@ -155,6 +165,7 @@ display: flex;
     font-size: 10em;
     color: #fff;
 }
+
 /* Start Overlayes - Full Screen Background */
 #startBathroomOverlay,
 #startBedroomOverlay,
@@ -366,12 +377,17 @@ display: flex;
 
 .happyG {
     position: absolute;
+    bottom: 0;
+    left: 0;
     margin: auto;
     z-index: 1;
     visibility: hidden;
 }
 
 .sadG {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     z-index: 2;
     visibility: hidden;
 }
@@ -409,7 +425,7 @@ display: flex;
     width: 100%;
     max-width: 100%;
     height: auto;
-    
+
     z-index: 0;
 }
 
@@ -483,11 +499,83 @@ display: flex;
     opacity: 1;
 
 }
+.name {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2em;
+    z-index: 1000;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+
+.name input {
+    margin-top: 20px;
+    font-size: 2em;
+    text-align: center;
+    background-color: #ffffff98;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 5px;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+
+.nameSub {
+    margin-top: 20px;
+    font-size: 1.5em;
+    text-align: center;
+    background-color: #fcf9f9f5;
+    border: solid 1px #fcf9f9f5;
+    border-radius: 5px;
+    color: #323232;
+    letter-spacing: 5px;
+    font-family: "Hanken Grotesk", sans-serif;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nameSub:hover {
+    background-color: #fcf9f9e4;
+    transform: scale(1.1);
+}
+
+#rotateMessage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.8em;
+    z-index: 1000;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+
+#rotateMessage p {
+    margin-bottom: 0;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+
+#rotateMessage>i {
+    color: #ffffff;
+    font-size: 2em;
+    padding-left: 30px;
+}
 
 @media only screen and (max-width: 1500px) {
 
     h1 {
-        margin-left: 200px;
         font-size: 3em;
     }
 
@@ -497,7 +585,7 @@ display: flex;
         padding-right: 10px;
         padding-left: 10px;
     }
-    
+
     .timer {
         font-size: 1em;
         padding-left: 10px;
@@ -506,10 +594,10 @@ display: flex;
     .timer_score {
         display: block;
     }
-        
-        .heart {
-            max-width: 35px;
-        }
+
+    .heart {
+        max-width: 35px;
+    }
 
     .characterContainer img {
         max-height: 330px;
@@ -529,9 +617,9 @@ display: flex;
         font-size: 1.3em;
     }
 
-        .heart {
-            max-width: 30px;
-        }
+    .heart {
+        max-width: 30px;
+    }
 
     .characterContainer img {
         max-height: 310px;
@@ -556,10 +644,10 @@ display: flex;
         font-size: 1.2em;
     }
 
-        .heart {
-            max-width: 25px;
-        }
-        
+    .heart {
+        max-width: 25px;
+    }
+
     .characterContainer img {
         max-height: 250px;
 
@@ -572,76 +660,16 @@ display: flex;
         font-size: 2em;
     }
 
-h2 {
+    h2 {
         font-size: 1.1em;
     }
 
-        .heart {
-            max-width: 23px;
-        }
+    .heart {
+        max-width: 23px;
+    }
 
     .characterContainer img {
         max-height: 200px;
-
-    }
-}
-
-@media only screen and (max-width: 775px) {
-
-    h1 {
-        font-size: 1.5em;
-    }
-
-    h2 {
-        font-size: 1em;
-    }
-
-        .heart {
-            max-width: 20px;
-        }
-
-    .characterContainer img {
-        max-height: 160px;
-
-    }
-}
-
-@media only screen and (max-width: 645px) {
-
-    h1 {
-        font-size: 1.3em;
-    }
-
-    h2 {
-        font-size: 0.9em;
-    }
-
-        .heart {
-            max-width: 18px;
-        }
-
-    .characterContainer img {
-        max-height: 150px;
-
-    }
-}
-
-@media only screen and (max-width: 620px) {
-
-    h1 {
-        font-size: 1.3em;
-    }
-
-    h2 {
-        font-size: 0.8em;
-    }
-
-        .heart {
-            max-width: 16px;
-        }
-
-    .characterContainer img {
-        max-height: 120px;
 
     }
 }
