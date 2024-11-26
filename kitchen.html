@@ -31,6 +31,12 @@
         <i class="fas fa-sync-alt"></i>
     </div>
 
+    <div id="kitchenLevCompleted" style="visibility: hidden;">
+        <p>Start next level: <br> Livingroom</p>
+        <br><br>
+        <button type="button" id="startLivingroomButton"><i class="fas fa-play"></i></button>
+    </div>
+
     <header>
         <div></div>
 
@@ -48,11 +54,12 @@
 
     <div class="page" style="background-image: url(images/kitchen/kitchenFaded.png);">
 
+
         <div class="leftPage">
             <div class="timer_score">
                 <h2 class="hTimer">TIME: <span class="timer" id="kitchenTimer">50</span></h2>
-                span></h2>
-                <h2 class="hScore">SCORE: <span class="score" id="bathroomScore">00</span></h2>
+                <h2 class="hScore">SCORE: <span class="score" id="kitchenScore">00</span></h2>
+
                 <h2>
                     <img class="heart" id="heart1" src="images/heart.png" alt="heart">
                     <img class="heart" id="heart2" src="images/heart.png" alt="heart">
@@ -98,7 +105,7 @@
 
 
                 <span class="fadedElements">
-                    <img class="droppableFaded" id="dishFadedkitchen" src="images/kitchen/dishWashingFaded.png"
+                    <img class="droppableFaded" id="dishesFadedkitchen" src="images/kitchen/dishWashingFaded.png"
                         alt="Faded image of a dishes">
                 </span>
 
@@ -120,7 +127,7 @@
                 </span>
 
                 <span class="fadedElements">
-                    <img class="droppableFaded" id="hanglingFadedkitchen" src="images/kitchen/hangingAccessoriesFaded.png"
+                    <img class="droppableFaded" id="hangingFadedkitchen" src="images/kitchen/hangingAccessoriesFaded.png"
                         alt="Faded image of hanging accessories">
                 </span>
 
@@ -163,78 +170,78 @@
 
             <div class="container" id="container">
                 <span class="elements">
-                    <img class="apron dragElement" id="apron" src="images/kitchen/apron.png" alt="An image of an apron">
+                    <img class="apron dragElement" id="apron" data-type='dragElement' src="images/kitchen/apron.png" alt="An image of an apron">
                 </span>
 
                 <span class="elements">
-                    <img class="bowl dragElement" id="bowl" src="images/kitchen/bowl.png" alt="An image of a bowl">
+                    <img class="bowl dragElement" id="bowl" data-type='dragElement' src="images/kitchen/bowl.png" alt="An image of a bowl">
                 </span>
 
 
                 <span class="elements">
-                    <img class="chopping dragElement" id="chopping" src="images/kitchen/chopping.png"
+                    <img class="chopping dragElement" id="chopping" data-type='dragElement' src="images/kitchen/chopping.png"
                         alt="An image of a chopping board">
                 </span>
 
 
                 <span class="elements">
-                    <img class="cup dragElement" id="cup" src="images/kitchen/cup.png" alt="An image of a cup">
+                    <img class="cup dragElement" id="cup" data-type='dragElement' src="images/kitchen/cup.png" alt="An image of a cup">
                 </span>
 
 
                 <span class="elements">
-                    <img class="dishes dragElement" id="dishes" src="images/kitchen/dishWashing.png"
+                    <img class="dishes dragElement" id="dishes" data-type='dragElement' src="images/kitchen/dishWashing.png"
                         alt="An image of a dishes">
                 </span>
 
                 <span class="elements">
-                    <img class="glass dragElement" id="glass" src="images/kitchen/glass.png" alt="An image of a glass">
+                    <img class="glass dragElement" id="glass" data-type='dragElement' src="images/kitchen/glass.png" alt="An image of a glass">
                 </span>
 
 
                 <span class="elements">
-                    <img class="gloves dragElement" id="gloves" src="images/kitchen/gloves.png"
+                    <img class="gloves dragElement" id="gloves" data-type='dragElement' src="images/kitchen/gloves.png"
                         alt="An image of gloves">
                 </span>
 
 
                 <span class="elements">
-                    <img class="grater dragElement" id="grater" src="images/kitchen/grater.png"
+                    <img class="grater dragElement" id="grater" data-type='dragElement' src="images/kitchen/grater.png"
                         alt="An image of a grater">
                 </span>
 
                 <span class="elements">
-                    <img class="hanging dragElement" id="hanging" src="images/kitchen/hangingAccessories.png"
+                    <img class="hanging dragElement" id="hanging" data-type='dragElement' src="images/kitchen/hangingAccessories.png"
                         alt="An image of a hanging accessories">
                 </span>
 
 
                 <span class="elements">
-                    <img class="knife dragElement" id="knife" src="images/kitchen/knife.png" alt="An image of a knife">
+                    <img class="knife dragElement" id="knife" data-type='dragElement' src="images/kitchen/knife.png" alt="An image of a knife">
                 </span>
 
 
                 <span class="elements">
-                    <img class="mixer dragElement" id="mixer" src="images/kitchen/mixer.png" alt="An image of a mixer">
+                    <img class="mixer dragElement" id="mixer" data-type='dragElement' src="images/kitchen/mixer.png" alt="An image of a mixer">
                 </span>
 
                 <span class="elements">
-                    <img class="pan dragElement" id="pan" src="images/kitchen/pan.png" alt="An image of a pan">
+                    <img class="pan dragElement" id="pan" data-type='dragElement' src="images/kitchen/pan.png" alt="An image of a pan">
                 </span>
 
 
                 <span class="elements">
-                    <img class="peeler dragElement" id="peeler" src="images/kitchen/peeler.png"
+                    <img class="peeler dragElement" id="peeler" data-type='dragElement' src="images/kitchen/peeler.png"
                         alt="An image of a peeler">
                 </span>
 
                 <span class="elements">
-                    <img class="toster dragElement" id="toster" src="images/kitchen/toster.png"
+                    <img class="toster dragElement" id="toster" data-type='dragElement' src="images/kitchen/toster.png"
                         alt="An image of a toster">
                 </span>
 
                 <span class="elements">
-                    <img class="whisk dragElement" id="whisk" src="images/kitchen/whisk.png" alt="An image of a whisk">
+                    <img class="whisk dragElement" id="whisk" data-type='dragElement' src="images/kitchen/whisk.png" alt="An image of a whisk">
                 </span>
 
             </div> <!--container div end-->

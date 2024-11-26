@@ -31,6 +31,12 @@
         <i class="fas fa-sync-alt"></i>
     </div>
 
+    <div id="livingroomLevCompleted" style="visibility: hidden;">
+        <p>All Levels completed</p>
+        <br><br>
+        <button type="button" class="openScoreBoard" id="openScoreBoard" onclick="saveHighScore()"><i class="fas fa-play"></i></button>
+    </div>
+
     <header>
 
         <div></div>
@@ -51,14 +57,12 @@
 
         <div class="leftPage">
             <div class="timer_score">
-                <h2 class="hTimer">TIME: <span class="timer" id="blivingroomTimer"></span>40</h2>
-                span></h2>
-                <h2 class="hScore">SCORE: <span class="score" id="bathroomScore">00</span></h2>
+                <h2 class="hTimer">TIME: <span class="timer" id="livingroomTimer">40</span></h2>
+                <h2 class="hScore">SCORE: <span class="score" id="livingroomScore">00</span></h2>
                 <h2>
                     <img class="heart" id="heart1" src="images/heart.png" alt="heart">
                     <img class="heart" id="heart2" src="images/heart.png" alt="heart">
-                    <img class="heart" id="heart3" src="images/heart.png" alt="heart"> <span class="score"
-                        id="livingroomScore"></span>
+                    <img class="heart" id="heart3" src="images/heart.png" alt="heart">
                 </h2>
             </div>
 
@@ -103,8 +107,8 @@
                 </span>
 
                 <span class="fadedElements">
-                    <img class="droppableFaded" id="pillowFadedLivlivingroom" src="images/livingroom/pillowsFaded.png"
-                        alt="Faded image of pillow">
+                    <img class="droppableFaded" id="pillowsFadedlivingroom" src="images/livingroom/pillowsFaded.png"
+                        alt="Faded image of pillows">
                 </span>
 
                 <span class="fadedElements">
@@ -138,7 +142,7 @@
                 </span>
 
                 <span class="fadedElements">
-                    <img class="droppableFaded" id="tvFadedLivlivingroom" src="images/livingroom/tvFaded.png"
+                    <img class="droppableFaded" id="tvFadedlivingroom" src="images/livingroom/tvFaded.png"
                         alt="Faded image of a tv">
                 </span>
 
@@ -156,81 +160,81 @@
 
             <div class="container" id="container">
                 <span class="elements">
-                    <img class="books dragElement" id="books" src="images/livingroom/books.png" alt="An image of books">
+                    <img class="books dragElement" id="books" data-type='dragElement' src="images/livingroom/books.png" alt="An image of books">
                 </span>
 
                 <span class="elements">
-                    <img class="bookShelf dragElement" id="bookShelf" src="images/livingroom/bookShelf.png"
+                    <img class="bookShelf dragElement" id="bookShelf" data-type='dragElement' src="images/livingroom/bookShelf.png"
                         alt="An image of a book shelf">
                 </span>
 
 
                 <span class="elements">
-                    <img class="chair dragElement" id="chair" src="images/livingroom/chair.png"
+                    <img class="chair dragElement" id="chair" data-type='dragElement' src="images/livingroom/chair.png"
                         alt="An image of a chair">
                 </span>
 
 
                 <span class="elements">
-                    <img class="lamp dragElement" id="lamp" src="images/livingroom/lamp.png" alt="An image of a lamp">
+                    <img class="lamp dragElement" id="lamp" data-type='dragElement' src="images/livingroom/lamp.png" alt="An image of a lamp">
                 </span>
 
 
                 <span class="elements">
-                    <img class="paint dragElement" id="paint" src="images/livingroom/paint.png"
+                    <img class="paint dragElement" id="paint" data-type='dragElement' src="images/livingroom/paint.png"
                         alt="An image of a paint">
                 </span>
 
                 <span class="elements">
-                    <img class="photo dragElement" id="photo" src="images/livingroom/photo.png"
+                    <img class="photo dragElement" id="photo" data-type='dragElement' src="images/livingroom/photo.png"
                         alt="An image of a photo">
                 </span>
 
 
                 <span class="elements">
-                    <img class="pillowLiv dragElement" id="pillowLiv" src="images/livingroom/pillows.png"
+                    <img class="pillows dragElement" id="pillows" data-type='dragElement' src="images/livingroom/pillows.png"
                         alt="An image of a pillows">
                 </span>
 
 
                 <span class="elements">
-                    <img class="plant dragElement" id="plant" src="images/livingroom/plant.png"
+                    <img class="plant dragElement" id="plant" data-type='dragElement' src="images/livingroom/plant.png"
                         alt="An image of a plant">
                 </span>
 
                 <span class="elements">
-                    <img class="shelf dragElement" id="shelf" src="images/livingroom/shelf.png"
+                    <img class="shelf dragElement" id="shelf" data-type='dragElement' src="images/livingroom/shelf.png"
                         alt="An image of a shelf">
                 </span>
 
 
                 <span class="elements">
-                    <img class="smallShelf dragElement" id="smallShelf" src="images/livingroom/smallShelf.png"
+                    <img class="smallShelf dragElement" id="smallShelf" data-type='dragElement' src="images/livingroom/smallShelf.png"
                         alt="An image of a small shelf">
                 </span>
 
 
                 <span class="elements">
-                    <img class="blanket dragElement" id="blanket" src="images/livingroom/blanket.png"
+                    <img class="blanket dragElement" id="blanket" data-type='dragElement' src="images/livingroom/blanket.png"
                         alt="An image of a blanket">
                 </span>
 
                 <span class="elements">
-                    <img class="sofa dragElement" id="sofa" src="images/livingroom/sofa.png" alt="An image of a sofa">
+                    <img class="sofa dragElement" id="sofa" data-type='dragElement' src="images/livingroom/sofa.png" alt="An image of a sofa">
                 </span>
 
 
                 <span class="elements">
-                    <img class="table dragElement" id="table" src="images/livingroom/table.png"
+                    <img class="table dragElement" id="table" data-type='dragElement' src="images/livingroom/table.png"
                         alt="An image of a table">
                 </span>
 
                 <span class="elements">
-                    <img class="tvLiv dragElement" id="tvLiv" src="images/livingroom/tv.png" alt="An image of a tv">
+                    <img class="tv dragElement" id="tv" data-type='dragElement' src="images/livingroom/tv.png" alt="An image of a tv">
                 </span>
 
                 <span class="elements">
-                    <img class="vase dragElement" id="vase" src="images/livingroom/vase.png" alt="An image of a vase">
+                    <img class="vase dragElement" id="vase" data-type='dragElement' src="images/livingroom/vase.png" alt="An image of a vase">
                 </span>
 
             </div> <!--container div end-->

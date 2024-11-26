@@ -31,6 +31,12 @@
         <i class="fas fa-sync-alt"></i>
     </div>
 
+    <div id="bedroomLevCompleted" style="visibility: hidden;">
+        <p>Start next level: <br> Kitchen</p>
+        <br><br>
+        <button type="button" id="startKitchenButton"><i class="fas fa-play"></i></button>
+    </div>
+
     <header>
 
         <div></div>
@@ -51,9 +57,10 @@
 
         <div class="leftPage">
             <div class="timer_score">
-                <h2 class="hTimer">TIME: <span class="timer" id="bedroomTimer"></span>65</h2>
-                span></h2>
-                <h2 class="hScore">SCORE: <span class="score" id="bathroomScore">00</span></h2>
+                <h2 class="hTimer">TIME: <span class="timer" id="bedroomTimer">65</span></h2>
+
+                <h2 class="hScore">SCORE: <span class="score" id="bedroomScore">00</span></h2>
+                
                 <h2>
                     <img class="heart" id="heart1" src="images/heart.png" alt="heart">
                     <img class="heart" id="heart2" src="images/heart.png" alt="heart">
@@ -162,79 +169,79 @@
 
             <div class="container" id="container">
                 <span class="elements">
-                    <img class="abcBlocks dragElement" id="abcBlocks" src="images/bedroom/abcBlocks.png"
+                    <img class="abc dragElement" id="abc" data-type='dragElement' src="images/bedroom/abcBlocks.png"
                         alt="An image of an abc blocks">
                 </span>
 
                 <span class="elements">
-                    <img class="ball dragElement" id="ball" src="images/bedroom/ball.png" alt="An image of a ball">
+                    <img class="ball dragElement" id="ball" data-type='dragElement' src="images/bedroom/ball.png" alt="An image of a ball">
                 </span>
 
 
                 <span class="elements">
-                    <img class="bear dragElement" id="bear" src="images/bedroom/bear.png"
+                    <img class="bear dragElement" id="bear" data-type='dragElement' src="images/bedroom/bear.png"
                         alt="An image of a teddy bear">
                 </span>
 
 
                 <span class="elements">
-                    <img class="bed dragElement" id="bed" src="images/bedroom/bed.png" alt="An image of a bed">
+                    <img class="bed dragElement" id="bed" data-type='dragElement' src="images/bedroom/bed.png" alt="An image of a bed">
                 </span>
 
 
                 <span class="elements">
-                    <img class="blocks dragElement" id="blocks" src="images/bedroom/blocks.png"
+                    <img class="blocks dragElement" id="blocks" data-type='dragElement' src="images/bedroom/blocks.png"
                         alt="An image of blocks">
                 </span>
 
                 <span class="elements">
-                    <img class="car dragElement" id="car" src="images/bedroom/car.png" alt="An image of a car">
+                    <img class="car dragElement" id="car" data-type='dragElement' src="images/bedroom/car.png" alt="An image of a car">
                 </span>
 
 
                 <span class="elements">
-                    <img class="dinosaur dragElement" id="dinosaur" src="images/bedroom/dinosaur.png"
+                    <img class="dinosaur dragElement" id="dinosaur" data-type='dragElement' src="images/bedroom/dinosaur.png"
                         alt="An image of a dinosaur">
                 </span>
 
 
                 <span class="elements">
-                    <img class="doll dragElement" id="doll" src="images/bedroom/doll.png" alt="An image of a doll">
+                    <img class="doll dragElement" id="doll" data-type='dragElement' src="images/bedroom/doll.png" alt="An image of a doll">
                 </span>
 
                 <span class="elements">
-                    <img class="giraffe dragElement" id="giraffe" src="images/bedroom/giraffe.png"
+                    <img class="giraffe dragElement" id="giraffe" data-type='dragElement' src="images/bedroom/giraffe.png"
                         alt="An image of a giraffe">
                 </span>
 
 
                 <span class="elements">
-                    <img class="pillow dragElement" id="pillow" src="images/bedroom/pillow.png"
+                    <img class="pillow dragElement" id="pillow" data-type='dragElement' src="images/bedroom/pillow.png"
                         alt="An image of a pillow">
                 </span>
 
 
                 <span class="elements">
-                    <img class="plane dragElement" id="plane" src="images/bedroom/plane.png" alt="An image of a plane">
+                    <img class="plane dragElement" id="plane" data-type='dragElement' src="images/bedroom/plane.png" alt="An image of a plane">
                 </span>
 
                 <span class="elements">
-                    <img class="robot dragElement" id="robot" src="images/bedroom/robot.png" alt="An image of a robot">
+                    <img class="robot dragElement" id="robot" data-type='dragElement' src="images/bedroom/robot.png" alt="An image of a robot">
                 </span>
 
 
                 <span class="elements">
-                    <img class="rocket dragElement" id="rocket" src="images/bedroom/rocket.png"
+                    <img class="rocket dragElement" id="rocket" data-type='dragElement' src="images/bedroom/rocket.png"
                         alt="An image of a rocket">
                 </span>
 
                 <span class="elements">
-                    <img class="spining dragElement" id="spining" src="images/bedroom/spring.png"
+                    <img class="spining dragElement" id="spining" data-type='dragElement' src="images/bedroom/spring.png"
                         alt="An image of a spining">
                 </span>
 
                 <span class="elements">
-                    <img class="train dragElement" id="train" src="images/bedroom/train.png" alt="An image of a train">
+                    <img class="train dragElement" id="train" data-type='dragElement' src="images/bedroom/train.png" alt="An image of a train">
                 </span>
 
             </div> <!--container div end-->

@@ -3,15 +3,23 @@ $(document).ready(() => {
     let score = 0;
     let mistake = 0;
     let totalDraggables = $('.dragElement').length; // Count all draggable elements
+    //the score for each room
     let bathroomScore = 0;
     let bedroomScore = 0;
     let kitchenScore = 0;
     let finalScore = 0;
     let livingroomScore = 0;
-    let bathroomTimer;
-    let bedroomTimer;
-    let kitchenTimer;
-    let livingroomTimer;
+    //the remaining draggables for each room
+    let bathroomRemaining = 15;
+    let bedroomRemaining = 15;
+    let kitchenRemaining = 15;
+    let livingroomRemaining = 15;
+    //the timer for each room
+    let bathroomTimer = 90;
+    let bedroomTimer = 75;
+    let kitchenTimer = 60;
+    let livingroomTimer = 45;
+    //the counter for each room
     let bathroomCounter;
     let bedroomCounter;
     let kitchenCounter;
@@ -22,8 +30,30 @@ $(document).ready(() => {
     startLivingroomTimer();
 
 
-    
-    
+    //Submit name
+    $("#nameSub").on("click", setStorage, (event) => {
+        event.preventDefault();
+        setStorage();
+    }); // submit name and prevent 
+
+    function setStorage() {
+        let username = $("#username").val();
+        localStorage.setItem("username", username);
+
+        //hide the name input after submitting
+        $("#name").css("visibility", "hidden").fadeOut(500);
+    }
+
+
+
+
+
+
+
+
+
+
+
     const $fadedElements = $(".fadedElements");
     const shuffledElements = $fadedElements.toArray().sort(() => Math.random() - 0.5);  // Shuffle the faded elements
 
@@ -94,7 +124,7 @@ $(document).ready(() => {
         "toothbrush": "images/bathroom/toothbrush.png",
         "toothpaste": "images/bathroom/toothpaste.png",
         "towels": "images/bathroom/towels.png",
-        "abcBlocks": "images/bedroom/abcBlocks.png",
+        "abc": "images/bedroom/abcBlocks.png",
         "ball": "images/bedroom/ball.png",
         "bear": "images/bedroom/bear.png",
         "bed": "images/bedroom/bed.png",
@@ -130,16 +160,55 @@ $(document).ready(() => {
         "lamp": "images/livingroom/lamp.png",
         "paint": "images/livingroom/paint.png",
         "photo": "images/livingroom/photo.png",
-        "pillowLiv": "images/livingroom/pillows.png",
+        "pillows": "images/livingroom/pillows.png",
         "plant": "images/livingroom/plant.png",
         "shelf": "images/livingroom/shelf.png",
         "smallShelf": "images/livingroom/smallShelf.png",
         "blanket": "images/livingroom/blanket.png",
         "sofa": "images/livingroom/sofa.png",
         "table": "images/livingroom/table.png",
-        "tvLiv": "images/livingroom/tv.png",
+        "tv": "images/livingroom/tv.png",
         "vase": "images/livingroom/vase.png"
     };
+
+    // Function to update the remaining draggables for a specific room
+    function updateRemainingDraggables(room) {
+        // Decrease the count based on the room
+        if (room === 'bathroom') {
+            bathroomRemaining--;
+            console.log(`Bathroom remaining: ${bathroomRemaining}`);
+
+            // When all draggables are dropped in the bathroom, show the completion div
+            if (bathroomRemaining === 0 || bathroomRemaining === 2 && mistake === 2 || bathroomRemaining === 1 && mistake === 1) {
+                $("#bathroomLevCompleted").css("visibility", "visible").fadeIn(500);
+
+                // Show bathroom completion div
+            }
+
+
+        } else if (room === 'bedroom') {
+            bedroomRemaining--;
+            // When all draggables are dropped in the bedroom, show the completion div
+            if (bedroomRemaining === 0 || bedroomRemaining === 2 && mistake === 2 || bedroomRemaining === 1 && mistake === 1) {
+                $("#bedroomLevCompleted").css("visibility", "visible").fadeIn(500); // Show bedroom completion div
+            }
+        } else if (room === 'kitchen') {
+            kitchenRemaining--;
+            // When all draggables are dropped in the kitchen, show the completion div
+            if (kitchenRemaining === 0 || kitchenRemaining === 2 && mistake === 2 || kitchenRemaining === 1 && mistake === 1) {
+                $("#kitchenLevCompleted").css("visibility", "visible").fadeIn(500); // Show kitchen completion div
+            }
+        } else if (room === 'livingroom') {
+            livingroomRemaining--;
+
+            // When all draggables are dropped in the livingroom, show the completion div
+            if (livingroomRemaining === 0 || livingroomRemaining === 2 && mistake === 2 || livingroomRemaining === 1 && mistake === 1) {
+                $("#livingroomLevCompleted").css("visibility", "visible").fadeIn(500); // Show kitchen completion div
+                // window.location.href = 'scoreBoard.html'; //redirect to score board page
+            }
+        }
+    }
+
 
     $(".droppableFaded").droppable({
         // Restrict to specific items and match the draggable items id
@@ -154,24 +223,24 @@ $(document).ready(() => {
         activeClass: "highlight", // Highlight the droppable area when the draggable is over it    
         over: handleOverEvent,
         out: handleOutEvent,
-        drop: handleDropEvent    
+        drop: handleDropEvent
     }); //END OF DROPPABLE
 
-function handleOverEvent (event, ui) {
+    function handleOverEvent(event, ui) {
         $(this).addClass("highlight");
 
         //Hide character when hovering over
-               $("#happyG").css("visibility", "hidden");     
-               $("#sadG").css("visibility", "hidden");
+        $("#happyG").css("visibility", "hidden");
+        $("#sadG").css("visibility", "hidden");
     }; // end of over event
-    function handleOutEvent (event, ui) {
+    function handleOutEvent(event, ui) {
         $(this).removeClass("highlight");
 
         // Hide character when the element leaves the droppable area
-        $("#happyG").css("visibility", "hidden");     
+        $("#happyG").css("visibility", "hidden");
         $("#sadG").css("visibility", "hidden");
     }; // end of out event
-   function handleDropEvent (event, ui) {
+    function handleDropEvent(event, ui) {
         const droppedId = ui.draggable.attr("id"); // Get the ID of the dropped element
         const droppableId = $(this).attr("id");
 
@@ -184,42 +253,62 @@ function handleOverEvent (event, ui) {
 
             $("#happyG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
 
-
             if (droppableId.includes('bathroom')) {
                 bathroomScore++;
                 $("#bathroomScore").text(bathroomScore);
-              
-                console.log("Final Score: " + bathroomScore);
-              } else if (droppableId.includes('bedroom')) {
+                updateRemainingDraggables('bathroom');
+
+                // Store the score in localStorage
+                localStorage.setItem('bathroomScore', bathroomScore);
+
+            } else if (droppableId.includes('bedroom')) {
                 bedroomScore++;
                 $("#bedroomScore").text(bedroomScore);
-              } else if (droppableId.includes('kitchen')) {
+                updateRemainingDraggables('bedroom');
+
+                // Store the score in localStorage
+                localStorage.setItem('bedroomScore', bedroomScore);
+
+            } else if (droppableId.includes('kitchen')) {
                 kitchenScore++;
                 $("#kitchenScore").text(kitchenScore);
-              } else if (droppableId.includes('livingroom')) {
+                updateRemainingDraggables('kitchen');
+
+                // Store the score in localStorage
+                localStorage.setItem('kitchenScore', kitchenScore);
+
+            } else if (droppableId.includes('livingroom')) {
                 livingroomScore++;
                 $("#livingroomScore").text(livingroomScore);
-              }
-              
-              // Calculate the total score
-              let finalScore = bathroomScore + bedroomScore + kitchenScore + livingroomScore;
-              console.log("Final Score: " + finalScore);
+                updateRemainingDraggables('livingroom');
 
-                    console.log("Dropped inside the zone. Points " + finalScore);
+                // Store the score in localStorage
+                localStorage.setItem('livingroomScore', livingroomScore);
+            }
+
+            // Calculate the total score
+            let finalScore = bathroomScore + bedroomScore + kitchenScore + livingroomScore;
+
+            console.log("Final Score: " + finalScore);
+
+            console.log("Dropped inside the zone. Points " + finalScore);
+
 
         } else {
-            
+
             $("#sadG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
         }
 
         if (finalScore === totalDraggables) {
             // All draggables are dropped, open a new window
+
             window.location.href = 'scoreBoard.html'; // Replace with your URL
         }
 
         $(this).removeClass("highlight"); // Remove the highlight when drop is done
 
     } // end of drop event fir correct matching
+
 
 
     $(".dropZone").droppable({
@@ -230,15 +319,15 @@ function handleOverEvent (event, ui) {
 
             // Check if the drop happened directly in `.game-area`, not in `.drop-zone`
             const isInDropZone =
-              $draggable.hasClass("ui-draggable-dragging") &&
-              $(".dropZone").has(ui.helper).length;
-              if (!isInDropZone) {
-             mistake++;
-            console.log("Dropped outside the zone. Mistakes: " + mistake);               
-              }
+                $draggable.hasClass("ui-draggable-dragging") &&
+                $(".dropZone").has(ui.helper).length;
+            if (!isInDropZone) {
+                mistake++;
+                console.log("Dropped outside the zone. Mistakes: " + mistake);
+            }
 
-            ui.draggable.css("visibility", "visible"); // Hide the original draggable element to avoid duplication
-            
+            ui.draggable.css("visibility", "hidden"); // Hide the original draggable element to avoid duplication
+
             if (mistake === 1) {
                 $("#sadG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
                 $("#heart3").css("visibility", "hidden").fadeOut(300);
@@ -259,10 +348,10 @@ function handleOverEvent (event, ui) {
                 //Gary - this doesn't fadeIn it just display without fadding in...
                 //Gary - this doesn't fadeIn it just display without fadding in...
                 //Gary - this doesn't fadeIn it just display without fadding in...
-                
-let gameOver = $("#gameOver").on("click", function () {
-    location.reload(true);
-}); //end of gameOver function
+
+                let gameOver = $("#gameOver").on("click", function () {
+                    location.reload(true);
+                }); //end of gameOver function
 
             }
         }
@@ -298,15 +387,15 @@ let gameOver = $("#gameOver").on("click", function () {
         bathroomTimer = setInterval(function () {
             bathroomCounter--;
             if (bathroomCounter >= 0) {
-                let countdown = document.getElementById("bathroomTimer");
-                countdown.innerHTML = " " + bathroomCounter;
+                let countdownBathroom = document.getElementById("bathroomTimer");
+                countdownBathroom.innerHTML = " " + bathroomCounter;
             } else {
                 clearInterval(bathroomTimer); // Stop the timer when it reaches zero
             }
         }, 1000)
     }; //end of bathroom game
 
- 
+
 
     // bedroom game
     $("#openStartBedroom").on("click", startBedroom);
@@ -337,8 +426,8 @@ let gameOver = $("#gameOver").on("click", function () {
         bedroomTimer = setInterval(function () {
             bedroomCounter--;
             if (bedroomCounter >= 0) {
-                let countdown = document.getElementById("bedroomTimer");
-                countdown.innerHTML = " " + bedroomCounter;
+                let countdownBedroom = document.getElementById("bedroomTimer");
+                countdownBedroom.innerHTML = " " + bedroomCounter;
             } else {
                 console.error("Element with ID 'bedroomTimer' not found.");
                 clearInterval(bedroomTimer); // Stop the timer when it reaches zero
@@ -377,8 +466,8 @@ let gameOver = $("#gameOver").on("click", function () {
         kitchenTimer = setInterval(function () {
             kitchenCounter--;
             if (kitchenCounter >= 0) {
-                let countdown = document.getElementById("kitchenTimer");
-                countdown.innerHTML = " " + kitchenCounter;
+                let countdownKitchen = document.getElementById("kitchenTimer");
+                countdownKitchen.innerHTML = " " + kitchenCounter;
             } else {
                 clearInterval(kitchenTimer); // Stop the timer when it reaches zero
             }
@@ -416,19 +505,40 @@ let gameOver = $("#gameOver").on("click", function () {
         livingroomTimer = setInterval(function () {
             livingroomCounter--;
             if (livingroomCounter >= 0) {
-                let countdown = document.getElementById("livingroomTimer");
-                countdown.innerHTML = " " + livingroomCounter;
+                let countdownLivingroom = document.getElementById("livingroomTimer");
+                countdownLivingroom.innerHTML = " " + livingroomCounter;
             } else {
                 clearInterval(livingroomTimer); // Stop the timer when it reaches zero
             }
         }, 1000)
     }; //end of livingroom game
 
+    $("#openScoreBoard").on("click", function () {
+        startScoreBoard();
+        setScore();
+    });
+
+    function startScoreBoard() {
+        $("body").fadeOut(500, function () {
+            window.location.href = 'scoreBoard.html';
+        });
+    }; // end of startLivingroomGame
+
+    function setScore() {
+        let finalScore = bathroomScore + bedroomScore + kitchenScore + livingroomScore;
+        localStorage.setItem("finalScore", finalScore);
+    }
+
+    window.onload = function () {
+        let getScore = localStorage.getItem("finalScore");
+        $("finalScoreOutput").html(getScore);
+    }
+
 
     // Function to rotate if screen width is smaller than 800px
     function checkScreenWidth() {
         const rotateMessage = document.getElementById("rotateMessage");
-    
+
         if (window.innerWidth < 800 && window.innerHeight > window.innerWidth) {
             // Show the rotate message for portrait mode with width < 800px
             rotateMessage.style.display = "flex";
@@ -437,7 +547,7 @@ let gameOver = $("#gameOver").on("click", function () {
             rotateMessage.style.display = "none";
         }
     }; // end of rotate function
-    
+
     // Run the check on load and on window resize
     window.addEventListener("load", checkScreenWidth);
     window.addEventListener("resize", checkScreenWidth);

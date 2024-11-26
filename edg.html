@@ -1,82 +1,19 @@
-//Submit name
-$("#nameSub").on("click", (event) => {
-    event.preventDefault();
-    setStorage();
-}); // submit name and prevent 
 
-function setStorage () {
-    let username = $("#username").val();
-    localStorage.setItem("username", username);
+if (draggable.includes('bathroom')) {
+    bathroomMistake++
+    console.log("Dropped outside the zone. Mistakes: " + bathroomMistake);
 
-    //hide the name input after submitting
-$("#name").css("visibility", "hidden").fadeOut(500);
-}
-//set the most recent store
-localStorage.setItem("mostRecentScore", score);
+} else if (draggable.includes('bedroom')) {
+    bedroomMistake++
+    console.log("Dropped outside the zone. Mistakes: " + bedroomMistake);
 
-//display the most recent store
-const finalScore = document.getElementById("finalScore");
-const mostRecentScore = Number(localStorage.getItem("mostRecentScore"));
-if (finalScore) {
-    finalScore.innerText = mostRecentScore;
+} else if (draggable.includes('kitchen')) {
+    kitchenMistake++
+    console.log("Dropped outside the zone. Mistakes: " + kitchenMistake);
+
+} else if (draggable.includes('livingroom')) {
+    livingroomMistake++
+    console.log("Dropped outside the zone. Mistakes: " + livingroomMistake);
 }
 
-//save high score
-function saveHighScore() {
-    const username = localStorage.getItem("username");
-    const finalScore = Number(localStorage.getItem("mostRecentScore"));
-
-    const scoreData = {
-        score: finalScore, 
-        name: username };
-
-const highScores = JSON.parse(localStorage.getItem("highScores")) || highScores.push(scoreData);
-
-highScores.sort((a, b) => b.score - a.score);
-
-//save updated high score back to localStorage
-localStorage.setItem("highScores", JSON.stringify(highScores));
-    }
-
-const displayList = document.getElementById("leaderboardoutput");
-const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-if (displayList) {
-    highScores.forEach((obj) => {
-        displayList.innerHTML += `Name: ${obj.name} Score: ${obj.score}<br>`;
-    });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Update individual room scores and display
-if (droppableId.includes('bathroom')) {
-  bathroomScore++;
-  $("#bathroomScore").text(bathroomScore);
-
-  console.log("Final Score: " + bathroomScore);
-} else if (droppableId.includes('bedroom')) {
-  bedroomScore++;
-  $("#bedroomScore").text(bedroomScore);
-} else if (droppableId.includes('kitchen')) {
-  kitchenScore++;
-  $("#kitchenScore").text(kitchenScore);
-} else if (droppableId.includes('livingroom')) {
-  livingroomScore++;
-  $("#livingroomScore").text(livingroomScore);
-}
-
-// Calculate and log the total score
-let finalScore = bathroomScore + bedroomScore + kitchenScore + livingroomScore;
-console.log("Final Score: " + finalScore);
+ui.draggable.css("visibility", "hidden"); // Hide the original draggable element to avoid duplication

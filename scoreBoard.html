@@ -21,15 +21,22 @@
 
     <!--score board-->
     <div id="scoreBoard">
-<div class="scoreHeading">SCOREBOARD
-    <p>YOUR SOCRE WAS: <span id="finalScore"></span></p>
-</div>
+        <div>
+            <p class="scoreHeading">SCOREBOARD</p>
+            <br>
+
+            <p class="scoreP">
+                <span id="nameOutput"></span>
+                YOUR SOCRE WAS:
+                <span id="finalScoreOutput"></span>
+            </p>
+        </div>
     </div>
     <div>
-<div class="userName">
-    <p>SCORES</p>
-    <p id="leaderboardoutput"></p>
-</div>
+        <div class="userName">
+            <p>SCORES</p>
+            <p id="leaderboardoutput"></p>
+        </div>
     </div>
 
     <header>
@@ -113,6 +120,28 @@
     <script src="jq/jqueryCORE/jquery-3.6.1.min.js"></script>
     <script src="jq/jqueryUI/jquery-ui.min.js"></script>
     <script defer src="js/script.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            let getName = localStorage.getItem("username");
+            $("#nameOutput").html(getName);
+
+            
+        // Retrieve each score from localStorage
+        let bathroomScore = parseInt(localStorage.getItem("bathroomScore")) || 0;
+        let bedroomScore = parseInt(localStorage.getItem("bedroomScore")) || 0;
+        let kitchenScore = parseInt(localStorage.getItem("kitchenScore")) || 0;
+        let livingroomScore = parseInt(localStorage.getItem("livingroomScore")) || 0;
+
+        // Calculate the total score
+        let totalScore = bathroomScore + bedroomScore + kitchenScore + livingroomScore;
+
+        // Display the total score in the correct element
+        $("#finalScoreOutput").text(totalScore);
+        });
+    </script>
+    
 
 </body>
 
