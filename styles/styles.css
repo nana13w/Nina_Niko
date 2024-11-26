@@ -66,6 +66,11 @@ h2 {
     padding-left: 10px;
 }
 
+.score {
+    font-size: 1em;
+    padding-left: 10px;
+}
+
 .hearts {
     display: flex;
     flex-direction: row;
@@ -164,6 +169,35 @@ h2 {
 #gameOverBtn>i {
     font-size: 10em;
     color: #fff;
+}
+
+#scoreBoard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.817);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.scoreHeading {
+    position: fixed;
+    top: 0;
+    font-family: "Modak", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffffed;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #850707;
+    letter-spacing: 2px;
+    padding-top: 15px;
 }
 
 /* Start Overlayes - Full Screen Background */
@@ -499,6 +533,7 @@ h2 {
     opacity: 1;
 
 }
+
 .name {
     position: fixed;
     top: 0;

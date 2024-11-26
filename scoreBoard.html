@@ -19,31 +19,17 @@
 
 <body background="images/background.jpg">
 
-    <!--a button to start bathroom game-->
-    <div id="startBathroomOverlay" style="visibility: hidden;">
-        <button type="button" id="startBathroomButton"><i class="fas fa-play"></i></button>
+    <!--score board-->
+    <div id="scoreBoard">
+<div class="scoreHeading">SCOREBOARD
+    <p>YOUR SOCRE WAS: <span id="finalScore"></span></p>
+</div>
     </div>
-
-    <!--a button to start bedroom game -->
-    <div id="startBedroomOverlay" style="visibility: hidden;">
-        <button type="button" id="startBedroomButton"><i class="fas fa-play"></i></button>
-    </div>
-
-    <!--a button to start kitchen game -->
-    <div id="startKitchenOverlay" style="visibility: hidden;">
-        <button type="button" id="startKitchenButton"><i class="fas fa-play"></i></button>
-    </div>
-
-    <!--a button to start livingroom game -->
-    <div id="startLivingroomOverlay" style="visibility: hidden;">
-        <button type="button" id="startLivingroomButton"><i class="fas fa-play"></i></button>
-    </div>
-
-    <div class="name" id="name">
-        <label for="user">
-            What's your name?
-        </label><input type="text" id="username" name="user">
-        <button class="nameSub" id="nameSub" type="submit">SUBMIT</button>
+    <div>
+<div class="userName">
+    <p>SCORES</p>
+    <p id="leaderboardoutput"></p>
+</div>
     </div>
 
     <header>

@@ -3,6 +3,11 @@ $(document).ready(() => {
     let score = 0;
     let mistake = 0;
     let totalDraggables = $('.dragElement').length; // Count all draggable elements
+    let bathroomScore = 0;
+    let bedroomScore = 0;
+    let kitchenScore = 0;
+    let finalScore = 0;
+    let livingroomScore = 0;
     let bathroomTimer;
     let bedroomTimer;
     let kitchenTimer;
@@ -16,12 +21,9 @@ $(document).ready(() => {
     startKitchenTimer();
     startLivingroomTimer();
 
-    //Submit name
-    const nameSub = $("nameSub");
-    nameSub.on("click", function () {
 
-    })
-
+    
+    
     const $fadedElements = $(".fadedElements");
     const shuffledElements = $fadedElements.toArray().sort(() => Math.random() - 0.5);  // Shuffle the faded elements
 
@@ -172,10 +174,8 @@ function handleOverEvent (event, ui) {
    function handleDropEvent (event, ui) {
         const droppedId = ui.draggable.attr("id"); // Get the ID of the dropped element
         const droppableId = $(this).attr("id");
-        score ++;
 
         console.log(`Dropped ID: ${droppedId}, Droppable ID: ${droppableId}`); // Debugging log
-        console.log("Dropped inside the zone. Points " + score);
 
         if (itemImages[droppedId] && droppableId.includes(droppedId)) {
             $(this).attr("src", itemImages[droppedId]); // Set the image source based on the dropped item
@@ -184,14 +184,37 @@ function handleOverEvent (event, ui) {
 
             $("#happyG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
 
+
+            if (droppableId.includes('bathroom')) {
+                bathroomScore++;
+                $("#bathroomScore").text(bathroomScore);
+              
+                console.log("Final Score: " + bathroomScore);
+              } else if (droppableId.includes('bedroom')) {
+                bedroomScore++;
+                $("#bedroomScore").text(bedroomScore);
+              } else if (droppableId.includes('kitchen')) {
+                kitchenScore++;
+                $("#kitchenScore").text(kitchenScore);
+              } else if (droppableId.includes('livingroom')) {
+                livingroomScore++;
+                $("#livingroomScore").text(livingroomScore);
+              }
+              
+              // Calculate the total score
+              let finalScore = bathroomScore + bedroomScore + kitchenScore + livingroomScore;
+              console.log("Final Score: " + finalScore);
+
+                    console.log("Dropped inside the zone. Points " + finalScore);
+
         } else {
             
             $("#sadG").css("visibility", "visible").fadeIn(300).delay(300).fadeOut(300);
         }
 
-        if (score === totalDraggables) {
+        if (finalScore === totalDraggables) {
             // All draggables are dropped, open a new window
-            window.location.href = 'index.html'; // Replace with your URL
+            window.location.href = 'scoreBoard.html'; // Replace with your URL
         }
 
         $(this).removeClass("highlight"); // Remove the highlight when drop is done
