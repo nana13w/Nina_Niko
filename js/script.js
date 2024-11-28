@@ -15,10 +15,10 @@ $(document).ready(() => {
     let kitchenRemaining = 15;
     let livingroomRemaining = 15;
     //the timer for each room
-    let bathroomTimer = 60;
-    let bedroomTimer = 60;
-    let kitchenTimer = 60;
-    let livingroomTimer = 60;
+    let bathroomTimer;
+    let bedroomTimer;
+    let kitchenTimer;
+    let livingroomTimer;
     //the counter for each room
     let bathroomCounter;
     let bedroomCounter;
@@ -171,7 +171,7 @@ $(document).ready(() => {
         "vase": "images/livingroom/vase.png"
     };
 
- 
+
     $(".droppableFaded").droppable({
         // Restrict to specific items and match the draggable items id
         accept: function (draggable) {
@@ -313,8 +313,8 @@ $(document).ready(() => {
     }); // end of mistake counting
 
 
-       // Function to update the remaining draggables for a specific room
-       function updateRemainingDraggables(room) {
+    // Function to update the remaining draggables for a specific room
+    function updateRemainingDraggables(room) {
         // Decrease the count based on the room
         if (room === 'bathroom') {
             bathroomRemaining--;
@@ -324,8 +324,8 @@ $(document).ready(() => {
             if (bathroomRemaining === 0) {
                 $("#bathroomLevCompleted").css("visibility", "visible").fadeIn(500);
             }
-                // Show bathroom completion div
-        }  else if (room === 'bedroom') {
+            // Show bathroom completion div
+        } else if (room === 'bedroom') {
             bedroomRemaining--;
             console.log(`Bedroom remaining: ${bedroomRemaining}`);
             // When all draggables are dropped in the bedroom, show the completion div
@@ -359,6 +359,7 @@ $(document).ready(() => {
     $("#startBathroomButton").on("click", function () {
         startBathroomGame();
         startBathroomTimer();
+        stopBathroomTimer();
     });
 
     //function to show play button when the bathroom img is pressed
@@ -378,18 +379,39 @@ $(document).ready(() => {
 
     //Function timer
     function startBathroomTimer() {
-        bathroomCounter = 70;
+        // Stop any existing timer before starting a new one
+        if (bathroomTimer) {
+            clearInterval(bathroomTimer);
+        }
+    
+        bathroomCounter = 60; // Reset the counter to 60
         bathroomTimer = setInterval(function () {
             bathroomCounter--;
-            if (bathroomCounter >= 0) {
-                let countdownBathroom = document.getElementById("bathroomTimer");
+            
+            // Update the timer display if the element exists
+            let countdownBathroom = document.getElementById("bathroomTimer");
+            if (countdownBathroom) {
                 countdownBathroom.innerHTML = " " + bathroomCounter;
-            } else {
+                console.log(`Bathroom Timer: ${bathroomCounter}`);
+            }
+    
+            // Stop the timer when it reaches zero
+            if (bathroomCounter <= 0) {
                 clearInterval(bathroomTimer); // Stop the timer when it reaches zero
             }
-        }, 1000)
-    }; //end of bathroom game
+        }, 1000);
+    }; // End of bathroom timer
 
+    // Function to stop the bathroom timer and calculate time taken
+    function stopBathroomTimer() {
+        if (bathroomTimer) {
+            clearInterval(bathroomTimer); // Stop the timer
+            let timeTakenBathroom = 60 - bathroomCounter; // Calculate time taken
+            localStorage.setItem("bathroomTime", timeTakenBathroom); // Store time in localStorage
+            console.log(`Bathroom timer stopped. Time taken: ${timeTakenBathroom} seconds`);
+
+        }
+    }
 
 
     // bedroom game
@@ -417,18 +439,28 @@ $(document).ready(() => {
 
     //Function timer
     function startBedroomTimer() {
-        bedroomCounter = 65;
+        // Stop any existing timer before starting a new one
+        if (bedroomTimer) {
+            clearInterval(bedroomTimer);
+        }
+    
+        bedroomCounter = 60; // Reset the counter to 60
         bedroomTimer = setInterval(function () {
             bedroomCounter--;
-            if (bedroomCounter >= 0) {
-                let countdownBedroom = document.getElementById("bedroomTimer");
-                countdownBedroom.innerHTML = " " + bedroomCounter;
-            } else {
-                console.error("Element with ID 'bedroomTimer' not found.");
+            
+            // Update the timer display if the element exists
+            let countdownBathroom = document.getElementById("bedroomTimer");
+            if (countdownBathroom) {
+                countdownBathroom.innerHTML = " " + bedroomCounter;
+                console.log(`Bedroom Timer: ${bedroomCounter}`);
+            }
+    
+            // Stop the timer when it reaches zero
+            if (bedroomCounter <= 0) {
                 clearInterval(bedroomTimer); // Stop the timer when it reaches zero
             }
-        }, 1000)
-    }; //end of bedroom game
+        }, 1000);
+    }; // End of bathroom timer
 
 
 
@@ -457,17 +489,28 @@ $(document).ready(() => {
 
     //Function timer
     function startKitchenTimer() {
-        kitchenCounter = 50;
+        // Stop any existing timer before starting a new one
+        if (kitchenTimer) {
+            clearInterval(kitchenTimer);
+        }
+    
+        kitchenCounter = 60; // Reset the counter to 60
         kitchenTimer = setInterval(function () {
             kitchenCounter--;
-            if (kitchenCounter >= 0) {
-                let countdownKitchen = document.getElementById("kitchenTimer");
-                countdownKitchen.innerHTML = " " + kitchenCounter;
-            } else {
+            
+            // Update the timer display if the element exists
+            let countdownBathroom = document.getElementById("kitchenTimer");
+            if (countdownBathroom) {
+                countdownBathroom.innerHTML = " " + kitchenCounter;
+                console.log(`Kitchen Timer: ${kitchenCounter}`);
+            }
+    
+            // Stop the timer when it reaches zero
+            if (kitchenCounter <= 0) {
                 clearInterval(kitchenTimer); // Stop the timer when it reaches zero
             }
-        }, 1000)
-    }; //end of kitchen game
+        }, 1000);
+    }; // End of bathroom timer
 
 
 
@@ -496,17 +539,28 @@ $(document).ready(() => {
 
     //Function timer
     function startLivingroomTimer() {
-        livingroomCounter = 40;
+        // Stop any existing timer before starting a new one
+        if (livingroomTimer) {
+            clearInterval(livingroomTimer);
+        }
+    
+        livingroomCounter = 60; // Reset the counter to 60
         livingroomTimer = setInterval(function () {
             livingroomCounter--;
-            if (livingroomCounter >= 0) {
-                let countdownLivingroom = document.getElementById("livingroomTimer");
-                countdownLivingroom.innerHTML = " " + livingroomCounter;
-            } else {
+            
+            // Update the timer display if the element exists
+            let countdownBathroom = document.getElementById("livingroomTimer");
+            if (countdownBathroom) {
+                countdownBathroom.innerHTML = " " + livingroomCounter;
+                console.log(`Livingroom Timer: ${livingroomCounter}`);
+            }
+    
+            // Stop the timer when it reaches zero
+            if (livingroomCounter <= 0) {
                 clearInterval(livingroomTimer); // Stop the timer when it reaches zero
             }
-        }, 1000)
-    }; //end of livingroom game
+        }, 1000);
+    }; // End of bathroom timer
 
     $("#openScoreBoard").on("click", function () {
         startScoreBoard();
