@@ -91,7 +91,8 @@
                     <div class="topHouseRooms">
 
 
-                        <img class="room levOne" id="openStartBathroom" src="images/bathroom/bathroom.jpg" alt="bathroom">
+                        <img class="room levOne" id="openStartBathroom" src="images/bathroom/bathroom.jpg"
+                            alt="bathroom">
 
                     </div>
                     <div class="topHouseRooms"><img class="room" id="openStartBedroom" src="images/bedroom/bedroom.jpg"
@@ -117,10 +118,15 @@
     <script>
         $(document).ready(function () {
             console.log("Index page loaded. Clearing scores...");
+            localStorage.removeItem("username");
             localStorage.removeItem("bathroomScore");
             localStorage.removeItem("bedroomScore");
             localStorage.removeItem("kitchenScore");
             localStorage.removeItem("livingroomScore");
+            localStorage.removeItem("bathroomTimer");
+            localStorage.removeItem("bedroomTimer");
+            localStorage.removeItem("kitchenTimer");
+            localStorage.removeItem("livingroomTimer");
         });
     </script>
 

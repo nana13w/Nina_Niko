@@ -1,0 +1,10 @@
+// Function to stop the bathroom timer and calculate time taken
+function stopBathroomTimer() {
+    if (bathroomTimer) {
+        clearInterval(bathroomTimer); // Stop the timer
+        let timeTakenBathroom = 60 - bathroomCounter; // Calculate time taken
+        localStorage.setItem("bathroomTime", timeTakenBathroom); // Store time in localStorage
+        console.log(`Bathroom timer stopped. Time taken: ${timeTakenBathroom} seconds`);
+
+    }
+}
