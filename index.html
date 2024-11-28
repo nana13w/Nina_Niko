@@ -114,6 +114,16 @@
     <script src="jq/jqueryUI/jquery-ui.min.js"></script>
     <script defer src="js/script.js"></script>
 
+    <script>
+        $(document).ready(function () {
+            console.log("Index page loaded. Clearing scores...");
+            localStorage.removeItem("bathroomScore");
+            localStorage.removeItem("bedroomScore");
+            localStorage.removeItem("kitchenScore");
+            localStorage.removeItem("livingroomScore");
+        });
+    </script>
+
 </body>
 
 </html>

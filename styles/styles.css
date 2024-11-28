@@ -185,6 +185,12 @@ h2 {
     z-index: 999;
 }
 
+.scoreBoardPg {
+    display: flex;
+    align-items: center;
+    flex-direction: column
+}
+
 .scoreHeading {
     color: white;
     font-size: 6em;
@@ -195,12 +201,13 @@ h2 {
     margin: 10px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
 }
 
 .scoreP {
     color: white;
     font-size: 4em;
-text-transform: uppercase;
+    text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 3px;
     text-align: center;
@@ -208,6 +215,14 @@ text-transform: uppercase;
     margin: 10px;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 50px;
+}
+
+.userData {
+    color: #fff;
+   display: flex;
+   flex-direction: column;
+
 }
 
 #bathroomLevCompleted,
@@ -291,6 +306,39 @@ text-transform: uppercase;
     /* ensures nothing will happen if pressed */
 }
 
+#openHomePg {
+    width: 220px;
+    height: 50px;
+    background-color: #00CB5E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#openHomePg p {
+    padding-right: 15px;
+    font-size: 1.5em;
+    font-weight: 700;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+
+#openHomePg:hover {
+    background-color: #31ff91;
+    transform: scale(1.1);
+}
+
+#openHomePg i {
+    font-size: 2em;
+    color: #fff;
+    pointer-events: none;
+    /* ensures nothing will happen if pressed */
+}
 
 /* start button */
 #openScoreBoard {
@@ -669,6 +717,36 @@ text-transform: uppercase;
     color: #ffffff;
     font-size: 2em;
     padding-left: 30px;
+}
+
+.tableScore {
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+table {
+    color: black;
+    background-color: #00cb5f9a;
+    font-size: 2em;
+    border: 3px solid #00CB5E;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 20px;
+    border: 3px solid #00CB5E;
+}
+
+td {
+
+    padding: 40px;
+    border: 3px solid #00CB5E;
+    font-weight: 300;
+
+}
+
+.star {
+    width: 30px;
 }
 
 @media only screen and (max-width: 1500px) {

@@ -21,7 +21,7 @@
 
     <!--score board-->
     <div id="scoreBoard">
-        <div>
+        <div class="scoreBoardPg">
             <p class="scoreHeading">SCOREBOARD</p>
             <br>
 
@@ -30,14 +30,34 @@
                 YOUR SOCRE WAS:
                 <span id="finalScoreOutput"></span>
             </p>
+            <div class="userData">
+                <p class="tableScore">SCORES</p>
+                <table id="leaderboardTable">
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Reward</th>
+                    </tr>
+                    <tr>
+                        <td id="scoreName"></td>
+                        <td id="scoreScore"></td>
+                        <td class="reward" id="reward">
+                            <img class="star" id="star1" src="images/star.png" alt="star">
+                            <img class="star" id="star2" src="images/star.png" alt="star">
+                            <img class="star" id="star3" src="images/star.png" alt="star">
+                        </td>
+                    </tr>
+                    <tbody id="leaderboardoutput">
+    
+                    </tbody>
+                </table>
+    
+            </div>
+            <div>        
+                <button type="button" id="openHomePg"><p>Open Home Page</p><i class="fas fa-play"></i></button></div>
         </div>
     </div>
-    <div>
-        <div class="userName">
-            <p>SCORES</p>
-            <p id="leaderboardoutput"></p>
-        </div>
-    </div>
+
 
     <header>
 
@@ -121,27 +141,6 @@
     <script src="jq/jqueryUI/jquery-ui.min.js"></script>
     <script defer src="js/script.js"></script>
 
-    <script>
-        $(document).ready(function() {
-
-            let getName = localStorage.getItem("username");
-            $("#nameOutput").html(getName);
-
-            
-        // Retrieve each score from localStorage
-        let bathroomScore = parseInt(localStorage.getItem("bathroomScore")) || 0;
-        let bedroomScore = parseInt(localStorage.getItem("bedroomScore")) || 0;
-        let kitchenScore = parseInt(localStorage.getItem("kitchenScore")) || 0;
-        let livingroomScore = parseInt(localStorage.getItem("livingroomScore")) || 0;
-
-        // Calculate the total score
-        let totalScore = bathroomScore + bedroomScore + kitchenScore + livingroomScore;
-
-        // Display the total score in the correct element
-        $("#finalScoreOutput").text(totalScore);
-        });
-    </script>
-    
 
 </body>
 
