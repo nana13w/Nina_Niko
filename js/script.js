@@ -165,6 +165,12 @@ $(document).ready(() => {
     vase: "images/livingroom/vase.png",
   };
 
+  // loop to iterate over the items in itemImages and log each item
+  for (const item in itemImages) {
+    if (itemImages.hasOwnProperty(item)) {
+    }
+  }
+
   $(".droppableFaded").droppable({
     // Restrict to specific items and match the draggable items id
     accept: function (draggable) {
@@ -611,6 +617,7 @@ $(document).ready(() => {
 
   $("#openScoreBoard").on("click", function () {
     startScoreBoard();
+
   });
 
   function startScoreBoard() {
@@ -644,6 +651,12 @@ $(document).ready(() => {
   $("#finalScoreOutput").text(totalScore);
   $("#scoreScore").text(totalScore);
 
+  function calculateTotalTime(bathroomTime, bedroomTimer, kitchenTime, livingroomTimer) {
+    let finalTime = bathroomTime + bedroomTimer + kitchenTime + livingroomTimer; // Add times together
+    console.log(`Total Time: ${finalTime} seconds`);
+
+    return finalTime;  // Return timer result
+}
 
   // Retrieve each time from localStorage
   bathroomTimer = parseInt(localStorage.getItem("bathroomTimer")) || 0;
@@ -651,7 +664,7 @@ $(document).ready(() => {
   kitchenTimer = parseInt(localStorage.getItem("kitchenTimer")) || 0;
   livingroomTimer = parseInt(localStorage.getItem("livingroomTimer")) || 0;
 
-  let finalTime = bathroomTimer + bedroomTimer + kitchenTimer + livingroomTimer;
+  let finalTime = calculateTotalTime(bathroomTimer, bedroomTimer, kitchenTimer, livingroomTimer);
 
 // Log and display results
 console.log(
