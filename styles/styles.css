@@ -188,10 +188,32 @@ h2 {
 .scoreBoardPg {
     display: flex;
     align-items: center;
-    flex-direction: column
+    flex-direction: column;
 }
 
-.scoreHeading {
+
+#instructionInterface {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.831);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999;
+}
+
+.instructionPg,
+.instructionHeading {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+}
+
+.scoreHeading,
+.instructionP {
     color: white;
     font-size: 6em;
     font-weight: 900;
@@ -252,6 +274,18 @@ h2 {
     font-family: "Hanken Grotesk", sans-serif;
 }
 
+.info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
 
 /* Start Overlayes - Full Screen Background */
 #startBathroomOverlay,

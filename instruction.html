@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&family=New+Amsterdam&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Modak&family=New+Amsterdam&display=swap"
+        rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Nina & Niko's Tidy-Up Adventure</title>
+</head>
+
+<body background="images/background.jpg">
+
+    <!--score board-->
+    <div id="instructionInterface">
+        <div class="instructionPg">
+            <p class="instructionHeading">INSTRUCTION</p>
+            <br>
+
+            <p class="instructionP">
+                <span id="nameOutput"></span>
+                YOUR SCORE WAS:
+                <span id="finalScoreOutput"></span>
+            </p>
+            <div class="userData">
+                <p class="tableScore">SCORES</p>
+                <table id="leaderboardTable">
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                  <!--   <th>Time</th>-->   
+                        <th>Reward</th>
+                    </tr>
+                    <tr>
+                        <td id="scoreName"></td>
+                        <td id="scoreScore"></td>
+                    <!--  <td id="scoreTime"></td> -->
+                        <td class="reward" id="reward">
+                            <img class="star" id="star1" src="images/star.png" alt="star" style="visibility: hidden;">
+                            <img class="star" id="star2" src="images/star.png" alt="star" style="visibility: hidden;">
+                            <img class="star" id="star3" src="images/star.png" alt="star" style="visibility: hidden;">
+                        </td>
+                    </tr>
+                    <tbody id="leaderboardoutput">
+    
+                    </tbody>
+                </table>
+    
+            </div>
+            <div>        
+                <button type="button" id="openHomePg"><p>Open Home Page</p><i class="fas fa-play"></i></button></div>
+        </div>
+    </div>
+
+
+    <header>
+
+        <div></div> <!--empty div to simulate the timer-->
+
+
+        <div>
+            <h1>Nina & Nico’s Tidy-Up Adventure</h1>
+        </div>
+
+        <!--a button to turn on/off background audio-->
+        <audio id="gameaudio" src="audio/gameaudio.mp3" loop></audio>
+        <div id="audioContainer">
+            <button id="audioBtn"><i class="fas fa-volume-up"></i></button>
+        </div>
+
+    </header>
+
+    <div class="fullPage"> <!--contains index's full page-->
+
+
+        <div class="leftSide"> <!--left side of the screen, holds characters, -->
+
+
+            <div class="leftTop">
+                <img class="leftCloud" src="images/leftTalkWelcome.png" alt="left arrowed talking cloud"
+                    style="visibility: visible;">
+
+                <img class="rightCloud" src="images/rightTalk.png" alt="right arrowed talking cloud"
+                    style="visibility: hidden;">
+            </div> <!--leftTop div end-->
+
+
+
+            <div class="leftBottom">
+
+                <div class="girlDiv">
+                    <img class="character girl" src="images/Character/Girl/neutralGirl.png" alt="a girl Nina">
+                </div>
+
+                <div class="boyDiv">
+                    <img class="character boy" src="images/Character/Boy/neutralBoy.png" alt="a boy Nico">
+                </div> <!--boyDiv div end-->
+
+
+            </div> <!--leftBottom div end-->
+
+        </div> <!--leftSide div end-->
+
+        <div class="rightSide">
+
+            <div class="house">
+                <div class="houseRoof">
+                    <img class="roof" src="images/roof.png" alt="roof">
+
+                </div> <!--roof div end-->
+                <div class="topHouse">
+                    <div class="topHouseRooms">
+
+
+                        <img class="room" id="openStartBathroom" src="images/bathroom/bathroom.jpg" alt="bathroom">
+
+                    </div>
+                    <div class="topHouseRooms"><img class="room" id="openStartBedroom" src="images/bedroom/bedroom.jpg"
+                            alt="bedroom"></div>
+                </div> <!--topHouse end-->
+                <div class="bottomHouse">
+                    <div class="topHouseRooms"><img class="room" id="openStartKitchen" src="images/kitchen/kitchen.jpg"
+                            alt="kitchen"></div>
+                    <div class="topHouseRooms"><img class="room" id="openStartLivingroom"
+                            src="images/livingroom/livingroom.jpg" alt="livingroom"></div>
+                </div> <!--bottomHouse end-->
+            </div> <!--house div end-->
+
+        </div> <!--rightSide div end-->
+
+    </div> <!--fullPage div end-->
+
+    <link rel="stylesheet" href="jq/jqueryUI/jquery-ui.min.css">
+    <script src="jq/jqueryCORE/jquery-3.6.1.min.js"></script>
+    <script src="jq/jqueryUI/jquery-ui.min.js"></script>
+    <script defer src="js/script.js"></script>
+
+
+</body>
+
+</html>
