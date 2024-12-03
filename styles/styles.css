@@ -411,10 +411,12 @@ h2 {
     transform: scale(1.1);
 }
 
+
 .girlDiv,
 .boyDiv {
     padding-bottom: 0px;
     display: flex;
+    width: 300px;
 }
 
 
@@ -422,13 +424,14 @@ h2 {
     display: flex;
     width: 100%;
     margin-bottom: 10px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 1;
 }
 
-.rightCloud {
-    display: flex;
-    width: 100%;
-    margin-bottom: 10px;
-}
 
 .rightSide {
     height: 90%;
@@ -447,10 +450,10 @@ h2 {
     width: 90%;
 }
 
+
 .topHouse {
     display: flex;
     flex-direction: row;
-
 }
 
 .bottomHouse {
@@ -480,12 +483,14 @@ h2 {
     height: 100%;
 }
 
-
-
 .levOne {
+    border: solid 4px #00CB5E;
+    box-shadow: 0px 0px 15px 15px #adff2f;
     cursor: pointer;
     transition: transform 0.3s ease;
     /*Smooth transition */
+    z-index: 10;
+    position: relative;
 }
 
 .levOne:hover {
@@ -529,7 +534,9 @@ h2 {
 }
 
 .happyG,
-.sadG {
+.sadG,
+.happyB,
+.sadB {
     position: absolute;
     bottom: 0;
     left: 0;

@@ -56,11 +56,11 @@
 
 
             <div class="leftTop">
-                <img class="leftCloud" src="images/leftTalkWelcome.png" alt="left arrowed talking cloud"
-                    style="visibility: visible;">
+                <img class="leftCloud" id="welcomeBubble" src="images/leftTalkWelcome.png"
+                    alt="left arrowed talking cloud" style="visibility: visible;">
 
-                <img class="rightCloud" src="images/rightTalk.png" alt="right arrowed talking cloud"
-                    style="visibility: hidden;">
+                    <img class="leftCloud" id="tidyUpLeft" src="images/gTidyUp.png" alt="Tidy up message from left side" style="visibility: hidden;">
+                    <img class="leftCloud" id="tidyUpRight" src="images/bTidyUp.png" alt="Tidy up message from right side" style="visibility: hidden;">
             </div> <!--leftTop div end-->
 
 
@@ -68,11 +68,11 @@
             <div class="leftBottom">
 
                 <div class="girlDiv">
-                    <img class="character girl" src="images/Character/Girl/neutralGirl.png" alt="a girl Nina">
+                    <img class="character girl" id="girl" src="images/Character/Girl/neutralGirl.png" alt="a girl Nina">
                 </div>
 
                 <div class="boyDiv">
-                    <img class="character boy" src="images/Character/Boy/neutralBoy.png" alt="a boy Nico">
+                    <img class="character boy" id="boy" src="images/Character/Boy/neutralBoy.png" alt="a boy Nico">
                 </div> <!--boyDiv div end-->
 
 
@@ -87,22 +87,29 @@
                     <img class="roof" src="images/roof.png" alt="roof">
 
                 </div> <!--roof div end-->
+
                 <div class="topHouse">
                     <div class="topHouseRooms">
-
-
-                        <img class="room levOne" id="openStartBathroom" src="images/bathroom/bathroom.jpg"
-                            alt="bathroom">
-
+                        <img class="room" id="openStartBathroom" src="images/bathroom/bathroom.jpg"
+                            alt="bathroom" >
                     </div>
-                    <div class="topHouseRooms"><img class="room" id="openStartBedroom" src="images/bedroom/bedroom.jpg"
-                            alt="bedroom"></div>
+
+
+                    <div class="topHouseRooms">
+                        <img class="room other" src="images/bedroom/bedroom.jpg" alt="bedroom" >
+                    </div>
                 </div> <!--topHouse end-->
+
                 <div class="bottomHouse">
-                    <div class="topHouseRooms"><img class="room" id="openStartKitchen" src="images/kitchen/kitchen.jpg"
-                            alt="kitchen"></div>
-                    <div class="topHouseRooms"><img class="room" id="openStartLivingroom"
-                            src="images/livingroom/livingroom.jpg" alt="livingroom"></div>
+
+                    <div class="topHouseRooms">
+                        <img class="room other" src="images/kitchen/kitchen.jpg" alt="kitchen" >
+                    </div>
+
+                    <div class="topHouseRooms">
+                        <img class="room other" src="images/livingroom/livingroom.jpg" alt="livingroom"
+                           >
+                    </div>
                 </div> <!--bottomHouse end-->
             </div> <!--house div end-->
 
@@ -118,7 +125,7 @@
     <script>
         $(document).ready(function () {
             console.log("Index page loaded. Clearing scores...");
-            
+
             localStorage.removeItem("username");
             localStorage.removeItem("bathroomScore");
             localStorage.removeItem("bedroomScore");
@@ -129,7 +136,7 @@
             localStorage.removeItem("kitchenTimer");
             localStorage.removeItem("livingroomTimer");
 
-            
+
         });
     </script>
 

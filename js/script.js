@@ -1,6 +1,7 @@
 $(document).ready(() => {
   //global variable
   let droppedItemScore = 0;
+  let selectedCharacter;
   let score = 0;
   let mistake = 0;
   let totalDraggables = $(".dragElement").length; // Count all draggable elements
@@ -43,7 +44,32 @@ $(document).ready(() => {
 
     //hide the name input after submitting
     $("#name").css("visibility", "hidden").fadeOut(500);
-  }
+  } // end of setting storage
+
+  //choose character
+  let girlCharacter = $("#girl").on("click", function () {
+    selectedCharacter = "girl";
+    localStorage.setItem("selectedCharacter", selectedCharacter);
+    console.log("Girl selected:", selectedCharacter); // Debugging
+    $("#boy").css("opacity", "0").fadeOut(500);
+    $("#welcomeBubble").css("opacity", "0").fadeOut(500);
+    $("#tidyUpLeft").css("visibility", "visible").fadeIn(300);
+    $("#openStartBathroom").css("opacity", "100").fadeIn(300);
+    $("#openStartBathroom").addClass("levOne");
+  })
+
+  let boyCharacter = $("#boy").on("click", function () {
+    selectedCharacter = "boy";
+    localStorage.setItem("selectedCharacter", selectedCharacter);
+    console.log("Boy selected:", selectedCharacter); // Debugging
+    $("#girl").css("opacity", "0").fadeOut(500);
+    $("#welcomeBubble").css("opacity", "0").fadeOut(500);
+    $("#tidyUpRight").css("visibility", "visible").fadeIn(300);
+    $("#openStartBathroom").css("opacity", "100").fadeIn(300);
+    $("#openStartBathroom").addClass("levOne");
+  })
+
+
 
   const $fadedElements = $(".fadedElements");
   const shuffledElements = $fadedElements
@@ -121,7 +147,7 @@ $(document).ready(() => {
     abc: "images/bedroom/abcBlocks.png",
     ball: "images/bedroom/ball.png",
     bear: "images/bedroom/bear.png",
-    bed: "images/bedroom/bed.png",
+    bedding: "images/bedroom/bedding.png",
     blocks: "images/bedroom/blocks.png",
     car: "images/bedroom/car.png",
     dinosaur: "images/bedroom/dinosaur.png",
@@ -193,6 +219,8 @@ $(document).ready(() => {
     //Hide characters when hovering over
     $("#happyG").css("visibility", "hidden");
     $("#sadG").css("visibility", "hidden");
+    $("#happyB").css("visibility", "hidden");
+    $("#sadB").css("visibility", "hidden");
   } // end of over event
 
   function handleOutEvent(event, ui) {
@@ -201,6 +229,8 @@ $(document).ready(() => {
     // Hide characters when the element leaves the droppable area
     $("#happyG").css("visibility", "hidden");
     $("#sadG").css("visibility", "hidden");
+    $("#happyB").css("visibility", "hidden");
+    $("#sadB").css("visibility", "hidden");
   } // end of out event
 
   function handleDropEvent(event, ui) {
@@ -208,7 +238,18 @@ $(document).ready(() => {
     const droppableId = $(this).attr("id");
 
     console.log(`Dropped ID: ${droppedId}, Droppable ID: ${droppableId}`); // Debugging log
+    console.log("Selected character during drop:", selectedCharacter);
 
+
+    //show selected character
+    selectedCharacter = localStorage.getItem("selectedCharacter");
+    if (selectedCharacter) {
+      console.log("Selected character during drop:", selectedCharacter);
+    } else {
+      console.log("No character selected in localStorage");
+    }
+
+    //correct answers in the game
     if (itemImages[droppedId] && droppableId.includes(droppedId)) {
       $(this).attr("src", itemImages[droppedId]); // Set the image source based on the dropped item
 
@@ -218,12 +259,25 @@ $(document).ready(() => {
       correctAnswer.currentTime = 0;
       correctAnswer.play();
 
+      if (selectedCharacter === "girl") {
+        $("#happyG")
+          .css("visibility", "visible")
+          .fadeIn(300)
+          .delay(300)
+          .fadeOut(300);
+        console.log("girl was selected")
 
-      $("#happyG")
-        .css("visibility", "visible")
-        .fadeIn(300)
-        .delay(300)
-        .fadeOut(300);
+      } else if (selectedCharacter === "boy") {
+        console.log("Boy was selected, playing happyB animation");
+        $(".happyB") // Correct selector for happy boy
+          .css("visibility", "visible")
+          .fadeIn(300)
+          .delay(300)
+          .fadeOut(300);
+      } else {
+        console.log("Dropped item does not match target.");
+      }
+
 
       if (droppableId.includes("bathroom")) {
         bathroomScore++;
@@ -265,11 +319,24 @@ $(document).ready(() => {
       incorrectAnswer.currentTime = 0;
       incorrectAnswer.play(); //incorrect sound effect
 
-      $("#sadG")
-        .css("visibility", "visible")
-        .fadeIn(300)
-        .delay(300)
-        .fadeOut(300);
+      if (selectedCharacter === "girl") {
+        $("#sadG")
+          .css("visibility", "visible")
+          .fadeIn(300)
+          .delay(300)
+          .fadeOut(300);
+        console.log("girl was selected")
+
+      } else if (selectedCharacter === "boy") {
+        console.log("Boy was selected, playing sadB animation");
+        $(".sadB") // Correct selector for happy boy
+          .css("visibility", "visible")
+          .fadeIn(300)
+          .delay(300)
+          .fadeOut(300);
+      } else {
+        console.log("Dropped item does not match target.");
+      }
     }
 
     if (finalScore === totalDraggables) {
@@ -290,7 +357,7 @@ $(document).ready(() => {
       // When all draggables are dropped in the bathroom, show the completion div
       if (bathroomRemaining === 0) {
         $("#bathroomLevCompleted").css("visibility", "visible").fadeIn(500);
-      
+
         let levelCompleted = document.getElementById("levelCompleted");
         levelCompleted.currentTime = 0;
         levelCompleted.play(); //level completed - sound effect
@@ -313,7 +380,7 @@ $(document).ready(() => {
       // When all draggables are dropped in the kitchen, show the completion div
       if (kitchenRemaining === 0) {
         $("#kitchenLevCompleted").css("visibility", "visible").fadeIn(500); // Show kitchen completion div
-                
+
         let levelCompleted = document.getElementById("levelCompleted");
         levelCompleted.currentTime = 0;
         levelCompleted.play(); //level completed - sound effect
@@ -324,7 +391,7 @@ $(document).ready(() => {
       // When all draggables are dropped in the livingroom, show the completion div
       if (livingroomRemaining === 0) {
         $("#livingroomLevCompleted").css("visibility", "visible").fadeIn(500); // Show kitchen completion div
-                
+
         let levelCompleted = document.getElementById("levelCompleted");
         levelCompleted.currentTime = 0;
         levelCompleted.play(); //level completed - sound effect
@@ -381,32 +448,71 @@ $(document).ready(() => {
 
       ui.draggable.css("visibility", "hidden"); // Hide the original draggable element to avoid duplication
 
-      
+
       let incorrectAnswer = document.getElementById("incorrectAnswer");
       incorrectAnswer.currentTime = 0;
       incorrectAnswer.play(); //incorrect sound effect
 
       if (mistake === 1) {
-        $("#sadG")
-          .css("visibility", "visible")
-          .fadeIn(300)
-          .delay(300)
-          .fadeOut(300);
+        if (selectedCharacter === "girl") {
+          $("#sadG")
+            .css("visibility", "visible")
+            .fadeIn(300)
+            .delay(300)
+            .fadeOut(300);
+          console.log("girl was selected")
+
+        } else if (selectedCharacter === "boy") {
+          console.log("Boy was selected, playing sadB animation");
+          $(".sadB") // Correct selector for happy boy
+            .css("visibility", "visible")
+            .fadeIn(300)
+            .delay(300)
+            .fadeOut(300);
+        } else {
+          console.log("Dropped item does not match target.");
+        }
         $("#heart3").css("visibility", "hidden").fadeOut(300);
 
       } else if (mistake === 2) {
-        $("#sadG")
-          .css("visibility", "visible")
-          .fadeIn(300)
-          .delay(300)
-          .fadeOut(300);
+        if (selectedCharacter === "girl") {
+          $("#sadG")
+            .css("visibility", "visible")
+            .fadeIn(300)
+            .delay(300)
+            .fadeOut(300);
+          console.log("girl was selected")
+
+        } else if (selectedCharacter === "boy") {
+          console.log("Boy was selected, playing sadB animation");
+          $(".sadB") // Correct selector for happy boy
+            .css("visibility", "visible")
+            .fadeIn(300)
+            .delay(300)
+            .fadeOut(300);
+        } else {
+          console.log("Dropped item does not match target.");
+        }
         $("#heart2").css("visibility", "hidden").fadeOut(300);
       } else {
-        $("#sadG")
-          .css("visibility", "visible")
-          .fadeIn(300)
-          .delay(300)
-          .fadeOut(300);
+        if (selectedCharacter === "girl") {
+          $("#sadG")
+            .css("visibility", "visible")
+            .fadeIn(300)
+            .delay(300)
+            .fadeOut(300);
+          console.log("girl was selected")
+
+        } else if (selectedCharacter === "boy") {
+          console.log("Boy was selected, playing sadB animation");
+          $(".sadB") // Correct selector for happy boy
+            .css("visibility", "visible")
+            .fadeIn(300)
+            .delay(300)
+            .fadeOut(300);
+        } else {
+          console.log("Dropped item does not match target.");
+        }
         $("#heart1").css("visibility", "hidden").fadeOut(300);
         $("#gameOverP").css("visibility", "visible").fadeIn(1500).delay(500);
         $("#gameOver").css("visibility", "visible").fadeIn(1500).delay(500);
