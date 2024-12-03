@@ -214,6 +214,11 @@ $(document).ready(() => {
 
       ui.draggable.css("visibility", "hidden"); // Hide the original draggable element to avoid duplication
 
+      let correctAnswer = document.getElementById("correctAnswer");
+      correctAnswer.currentTime = 0;
+      correctAnswer.play();
+
+
       $("#happyG")
         .css("visibility", "visible")
         .fadeIn(300)
@@ -255,6 +260,11 @@ $(document).ready(() => {
 
       console.log("Final Score: " + finalScore);
     } else {
+
+      let incorrectAnswer = document.getElementById("incorrectAnswer");
+      incorrectAnswer.currentTime = 0;
+      incorrectAnswer.play(); //incorrect sound effect
+
       $("#sadG")
         .css("visibility", "visible")
         .fadeIn(300)
@@ -280,6 +290,10 @@ $(document).ready(() => {
       // When all draggables are dropped in the bathroom, show the completion div
       if (bathroomRemaining === 0) {
         $("#bathroomLevCompleted").css("visibility", "visible").fadeIn(500);
+      
+        let levelCompleted = document.getElementById("levelCompleted");
+        levelCompleted.currentTime = 0;
+        levelCompleted.play(); //level completed - sound effect
       }
       // Show bathroom completion div
     } else if (room === "bedroom") {
@@ -288,6 +302,10 @@ $(document).ready(() => {
       // When all draggables are dropped in the bedroom, show the completion div
       if (bedroomRemaining === 0) {
         $("#bedroomLevCompleted").css("visibility", "visible").fadeIn(500); // Show bedroom completion div
+
+        let levelCompleted = document.getElementById("levelCompleted");
+        levelCompleted.currentTime = 0;
+        levelCompleted.play(); //level completed - sound effect
       }
     } else if (room === "kitchen") {
       kitchenRemaining--;
@@ -295,6 +313,10 @@ $(document).ready(() => {
       // When all draggables are dropped in the kitchen, show the completion div
       if (kitchenRemaining === 0) {
         $("#kitchenLevCompleted").css("visibility", "visible").fadeIn(500); // Show kitchen completion div
+                
+        let levelCompleted = document.getElementById("levelCompleted");
+        levelCompleted.currentTime = 0;
+        levelCompleted.play(); //level completed - sound effect
       }
     } else if (room === "livingroom") {
       livingroomRemaining--;
@@ -302,6 +324,10 @@ $(document).ready(() => {
       // When all draggables are dropped in the livingroom, show the completion div
       if (livingroomRemaining === 0) {
         $("#livingroomLevCompleted").css("visibility", "visible").fadeIn(500); // Show kitchen completion div
+                
+        let levelCompleted = document.getElementById("levelCompleted");
+        levelCompleted.currentTime = 0;
+        levelCompleted.play(); //level completed - sound effect
         // window.location.href = 'scoreBoard.html'; //redirect to score board page
       }
     }
@@ -339,6 +365,7 @@ $(document).ready(() => {
         // When all draggables are dropped in each room, show the completion div
         if (bathroomRemaining === 0) {
           $("#bathroomLevCompleted").css("visibility", "visible").fadeIn(500);
+
         }
         if (bedroomRemaining === 0) {
           $("#bedroomLevCompleted").css("visibility", "visible").fadeIn(500); // Show bedroom completion div
@@ -354,6 +381,11 @@ $(document).ready(() => {
 
       ui.draggable.css("visibility", "hidden"); // Hide the original draggable element to avoid duplication
 
+      
+      let incorrectAnswer = document.getElementById("incorrectAnswer");
+      incorrectAnswer.currentTime = 0;
+      incorrectAnswer.play(); //incorrect sound effect
+
       if (mistake === 1) {
         $("#sadG")
           .css("visibility", "visible")
@@ -361,6 +393,7 @@ $(document).ready(() => {
           .delay(300)
           .fadeOut(300);
         $("#heart3").css("visibility", "hidden").fadeOut(300);
+
       } else if (mistake === 2) {
         $("#sadG")
           .css("visibility", "visible")
@@ -377,6 +410,11 @@ $(document).ready(() => {
         $("#heart1").css("visibility", "hidden").fadeOut(300);
         $("#gameOverP").css("visibility", "visible").fadeIn(1500).delay(500);
         $("#gameOver").css("visibility", "visible").fadeIn(1500).delay(500);
+
+        //game over sound effect
+        let gameOverAudio = document.getElementById("gameOverAudio");
+        gameOverAudio.currentTime = 0;
+        gameOverAudio.play();
 
         let gameOver = $("#gameOver").on("click", function () {
           window.location.href = "index.html";
@@ -476,10 +514,10 @@ $(document).ready(() => {
     let bedroomTimer = setInterval(function () {
       bedroomCounter--;
 
-            // Debug: Log current values
-            console.log(
-              `Current Counter: ${bedroomCounter}, droppedItemScore: ${droppedItemScore}`
-            );
+      // Debug: Log current values
+      console.log(
+        `Current Counter: ${bedroomCounter}, droppedItemScore: ${droppedItemScore}`
+      );
 
       // Stop the timer when conditions are met
       if (droppedItemScore === 3) {
@@ -656,7 +694,7 @@ $(document).ready(() => {
     console.log(`Total Time: ${finalTime} seconds`);
 
     return finalTime;  // Return timer result
-}
+  }
 
   // Retrieve each time from localStorage
   bathroomTimer = parseInt(localStorage.getItem("bathroomTimer")) || 0;
@@ -666,12 +704,12 @@ $(document).ready(() => {
 
   let finalTime = calculateTotalTime(bathroomTimer, bedroomTimer, kitchenTimer, livingroomTimer);
 
-// Log and display results
-console.log(
-  `Final timer: ${bathroomTimer} + ${bedroomTimer} + ${kitchenTimer} + ${livingroomTimer} = ${finalTime}`
-);
+  // Log and display results
+  console.log(
+    `Final timer: ${bathroomTimer} + ${bedroomTimer} + ${kitchenTimer} + ${livingroomTimer} = ${finalTime}`
+  );
 
-$("#scoreTime").text(finalTime); // Display remaining time
+  $("#scoreTime").text(finalTime); // Display remaining time
 
   if (totalScore === 60) {
     $("#star1").css("visibility", "visible");

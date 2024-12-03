@@ -38,6 +38,24 @@
         <br><br>
         <button type="button" id="startBedroomButton"><i class="fas fa-play"></i></button>
     </div>
+    
+   <!--audios for sounds effects-->
+   <audio id="incorrectAnswer">
+    <source src="audio/incorrectAnswer.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="correctAnswer">
+    <source src="audio/correcrAnswer.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="levelCompleted">
+    <source src="audio/levelCompleted.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="gameOverAudio">
+    <source src="audio/gameOver.mp3" type="audio/mpeg">
+</audio>
+
 
     <header>
         <div style="width: 50px;"></div>
@@ -171,8 +189,8 @@
 
             <div class="container" id="container">
                 <span class="elements">
-                    <img class="bathTube dragElement" id="bathTube" data-type='dragElement' src="images/bathroom/bathTube.png"
-                        alt="An image of a bath tube">
+                    <img class="bathTube dragElement" id="bathTube" data-type='dragElement'
+                        src="images/bathroom/bathTube.png" alt="An image of a bath tube">
                 </span>
 
                 <span class="elements">
