@@ -94,14 +94,16 @@ h2 {
 }
 
 /* audio styles */
-#audioContainer {
+#audioContainer,
+#instructionContainer {
     display: flex;
     flex-direction: row-reverse;
     margin-right: 20px;
 
 }
 
-#audioBtn {
+#audioBtn,
+#instructionBtn {
     width: 50px;
     height: 50px;
     background-color: #00CB5E;
@@ -114,12 +116,14 @@ h2 {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#audioBtn:hover {
+#audioBtn:hover,
+#instructionBtn:hover {
     background-color: #31ff91;
     transform: scale(1.1);
 }
 
-#audioBtn>i {
+#audioBtn>i,
+#instructionBtn>i {
     color: #ffffff;
     font-size: 2.5em;
 }
@@ -198,9 +202,9 @@ h2 {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.831);
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
     z-index: 999;
 }
@@ -212,8 +216,7 @@ h2 {
     flex-direction: column;
 }
 
-.scoreHeading,
-.instructionP {
+.scoreHeading {
     color: white;
     font-size: 6em;
     font-weight: 900;
@@ -223,6 +226,16 @@ h2 {
     margin: 10px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+}
+.instructionP {
+    color: white;
+    font-size: 6em;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-align: left;
+    font-family: "Hanken Grotesk", sans-serif;
+    margin: 30px;
     display: flex;
 }
 
@@ -340,7 +353,7 @@ h2 {
     /* ensures nothing will happen if pressed */
 }
 
-#openHomePg {
+.openHomePg {
     width: 220px;
     height: 50px;
     background-color: #00CB5E;
@@ -355,19 +368,36 @@ h2 {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#openHomePg p {
+.openHomePgInst {
+    width: 220px;
+    height: 50px;
+    background-color: #00CB5E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;  
+}
+
+.openHomePg p,
+.openHomePgInst p {
     padding-right: 15px;
     font-size: 1.5em;
     font-weight: 700;
     font-family: "Hanken Grotesk", sans-serif;
 }
 
-#openHomePg:hover {
+.openHomePg:hover,
+.openHomePgInst:hover {
     background-color: #31ff91;
     transform: scale(1.1);
 }
 
-#openHomePg i {
+.openHomePg i,
+.openHomePgInst i {
     font-size: 2em;
     color: #fff;
     pointer-events: none;
@@ -764,6 +794,27 @@ h2 {
 .tableScore {
     font-size: 2em;
     text-decoration: underline;
+}
+
+.steps {
+    font-size: 1.5em;
+    text-decoration: underline;
+    margin-left: 30px;
+}
+
+.video {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.video p {
+    margin-left: 30px;
+    margin-top: 0;
+    font-size: 2em;
+max-width: 60%;
+width: auto;
+font-family: "Hanken Grotesk", sans-serif;
 }
 
 table {

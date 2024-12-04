@@ -1,10 +1,236 @@
-// Function to stop the bathroom timer and calculate time taken
-function stopBathroomTimer() {
-    if (bathroomTimer) {
-        clearInterval(bathroomTimer); // Stop the timer
-        let timeTakenBathroom = 60 - bathroomCounter; // Calculate time taken
-        localStorage.setItem("bathroomTime", timeTakenBathroom); // Store time in localStorage
-        console.log(`Bathroom timer stopped. Time taken: ${timeTakenBathroom} seconds`);
 
+//Function timer
+function startBathroomTimer() {
+  let bathroomCounter = 60; // Reset the counter
+  let bathroomTimer = setInterval(function () {
+    bathroomCounter--;
+
+    // Debug: Log current values
+    console.log(
+      `Current Counter: ${bathroomCounter}, droppedItemScore: ${droppedItemScore}`
+    );
+
+    // Stop the timer when conditions are met
+    if (droppedItemScore === 3) {
+      clearInterval(bathroomTimer);
+      console.log(
+        `Bathroom Timer stopped due to droppedItemScore === 3 (GG).`
+      );
+    } else if (bathroomCounter === 0) {
+      clearInterval(bathroomTimer);
+      console.log(
+        `Bathroom Timer stopped due to bathroomCounter === 0 or MAX Points scored (GG2).`
+      );
+    } else if (bathroomRemaining === 0) {
+      clearInterval(bathroomTimer);
+      console.log(
+        `Bathroom Timer stopped due to bathroomCounter === 0 or MAX Points scored (GG2).`
+      );
+    };
+    // Update the timer display if the element exists
+    let countdownBathroom = document.getElementById("bathroomTimer");
+    if (countdownBathroom) {
+      countdownBathroom.innerHTML = " " + bathroomCounter;
     }
+
+    // Store the timer in localStorage
+    localStorage.setItem("bathroomTimer", bathroomTimer);
+  }, 1000);
 }
+
+
+
+//Function timer
+function startBedroomTimer() {
+  let bedroomCounter = 60; // Reset the counter
+  let bedroomTimer = setInterval(function () {
+    bedroomCounter--;
+
+    // Debug: Log current values
+    console.log(
+      `Current Counter: ${bedroomCounter}, droppedItemScore: ${droppedItemScore}`
+    );
+
+    // Stop the timer when conditions are met
+    if (droppedItemScore === 3) {
+      clearInterval(bedroomTimer);
+      console.log(
+        `Bedroom Timer stopped due to droppedItemScore === 3 (GG).`
+      );
+    } else if (bedroomCounter === 0 || bedroomRemaining === 0) {
+      clearInterval(bedroomTimer);
+      console.log(
+        `Bedroom Timer stopped due to bedroomCounter === 0 or MAX Points scored (GG2).`
+      );
+    }
+    // Update the timer display if the element exists
+    let countdownBedroom = document.getElementById("bedroomTimer");
+    if (countdownBedroom) {
+      countdownBedroom.innerHTML = " " + bedroomCounter;
+    }
+
+    // Store the timer in localStorage
+    localStorage.setItem("bedroomTimer", bedroomTimer);
+  }, 1000);
+} // End of bathroom timer
+
+
+
+
+
+
+//Function timer
+  function startKitchenTimer() {
+    let kitchenCounter = 60; // Reset the counter to 60
+    let kitchenTimer = setInterval(function () {
+      kitchenCounter--;
+
+      // Debug: Log current values
+      console.log(
+        `Current Counter: ${kitchenCounter}, droppedItemScore: ${droppedItemScore}`
+      );
+
+      // Stop the timer when conditions are met
+      if (droppedItemScore === 3) {
+        clearInterval(kitchenTimer);
+        console.log(
+          `Kitchen Timer stopped due to droppedItemScore === 3 (GG).`
+        );
+      } else if (kitchenCounter === 0 || kitchenRemaining === 0) {
+        clearInterval(kitchenTimer); // Stop the timer
+        console.log(`Kitchen Timer stopped due to bathroomCounter === 0 or MAX Points scored (GG2).`);
+      };
+      // Update the timer display if the element exists
+      let countdownKitchen = document.getElementById("kitchenTimer");
+      if (countdownKitchen) {
+        countdownKitchen.innerHTML = " " + kitchenCounter;
+      }
+
+      // Store the timer in localStorage
+      localStorage.setItem("kitchenTimer", kitchenTimer);
+    }, 1000);
+  } // End of kitchen timer
+
+
+
+
+
+
+
+
+
+
+//Function timer
+  function startLivingroomTimer() {
+    let livingroomCounter = 60; // Reset the counter
+    let livingroomTimer = setInterval(function () {
+      livingroomCounter--;
+
+      // Debug: Log current values
+      console.log(
+        `Current Counter: ${livingroomCounter}, droppedItemScore: ${droppedItemScore}`
+      );
+
+      // Stop the timer when conditions are met
+      if (droppedItemScore === 3) {
+        clearInterval(livingroomTimer);
+        console.log(
+          `Livingroom Timer stopped due to droppedItemScore === 3 (GG).`
+        );
+      } else if (livingroomCounter === 0 || livingroomRemaining === 0) {
+        clearInterval(livingroomTimer);
+        console.log(`Livingroom Timer stopped due to bathroomCounter === 0 or MAX Points scored (GG2).`);
+      };
+      // Update the timer display if the element exists
+      let countdownLivingroom = document.getElementById("livingroomTimer");
+      if (countdownLivingroom) {
+        countdownLivingroom.innerHTML = " " + livingroomCounter;
+      }
+
+
+      // Store the timer in localStorage
+      localStorage.setItem("livingroomTimer", livingroomTimer);
+    }, 1000);
+  } // End of bathroom timer
+
+
+
+
+
+
+
+
+
+  // trial
+
+  function startRoomTimer(roomName) {
+    let counter = 100; //Reset the counter
+    let roomRemaining = getRemaining(roomName);
+    let roomTimerElement = document.getElementById("roomTimer");
+
+    let timer = setInterval(function() {
+      counter--;
+
+      console.log(`Current counter for ${roomName}: ${counter}`);
+
+      //stop the timer if conditions are met
+      if (droppedItemScore === 3) {
+        clearInterval(timer);
+        console.log(
+          `${roomName} Timer stopped due to droppedItemScore === 3.`
+        );
+      } else if (counter === 0) {
+        clearInterval(timer);
+        console.log(
+          `${roomName} Timer stopped due to counter === 0.`
+        );
+      } else if (roomRemaining === 0) {
+        clearInterval(timer);
+        console.log(
+          `${roomName} Timer stopped due to roomRemining === 0.`
+        );
+      };
+
+      // Update the DOM with the current counter value
+      if (roomTimerElement) {
+        roomTimerElement.innerText = counter; // Update the timer text
+    }
+
+
+    if (roomRemaining > 0) {
+      roomRemaining--;
+      setRemining(roomName,  - 1);
+    }
+    }, 1000);
+  };
+
+  function getRemaining(roomName) {
+    switch (roomName) {
+      case "bathroom": return bathroomRemaining;
+      case "bedroom": return bedroomRemaining;
+      case "kitchen": return kitchenRemaining;
+      case "livingroom": return livingroomRemaining;
+      default: return 0;
+    };
+  };
+
+  function setRemaining(roomName, value) {
+    switch (roomName) {
+      case "bathroom": return bathroomRemaining = value; break;
+      case "bedroom": return bedroomRemaining = value; break;
+      case "kitchen": return kitchenRemaining = value; break;
+      case "livingroom": return livingroomRemaining = value; break;
+    }
+  }
+  const rooms = [
+    { name: "bathroom", id: "Bathroom" },
+    { name: "bedroom", id: "Bedroom" },
+    { name: "kitchen", id: "Kitchen" },
+    { name: "livingroom", id: "Livingroom" },
+  ];
+  
+  rooms.forEach((room) => {
+    $(`#start${room.id}Button`).on("click", function () {
+      startRoomTimer(roomName);
+    });
+  });

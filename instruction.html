@@ -22,42 +22,48 @@
     <!--score board-->
     <div id="instructionInterface">
         <div class="instructionPg">
-            <p class="instructionHeading">INSTRUCTION</p>
-            <br>
 
             <p class="instructionP">
-                <span id="nameOutput"></span>
-                YOUR SCORE WAS:
-                <span id="finalScoreOutput"></span>
+                <span></span>
+                INSTRUCTION
+                <span></span>
             </p>
+
             <div class="userData">
-                <p class="tableScore">SCORES</p>
-                <table id="leaderboardTable">
-                    <tr>
-                        <th>Name</th>
-                        <th>Score</th>
-                  <!--   <th>Time</th>-->   
-                        <th>Reward</th>
-                    </tr>
-                    <tr>
-                        <td id="scoreName"></td>
-                        <td id="scoreScore"></td>
-                    <!--  <td id="scoreTime"></td> -->
-                        <td class="reward" id="reward">
-                            <img class="star" id="star1" src="images/star.png" alt="star" style="visibility: hidden;">
-                            <img class="star" id="star2" src="images/star.png" alt="star" style="visibility: hidden;">
-                            <img class="star" id="star3" src="images/star.png" alt="star" style="visibility: hidden;">
-                        </td>
-                    </tr>
-                    <tbody id="leaderboardoutput">
-    
-                    </tbody>
-                </table>
-    
+
+                    <p class="steps">STEP 1</p>                
+                    <div class="video">
+                    <video width="340" height="160" controls>
+                        <source src="videos/step1.mp4" type="video/mp4">
+                    </video>
+                    <p>Pick your character! Tap the picture of a boy or girl to choose.</p>
+                </div>
+
+
+                    <p class="steps">STEP 2</p>
+                    <div class="video">
+                    <video width="340" height="160" controls>
+                        <source src="videos/step2.mp4" type="video/mp4">
+                    </video>
+                    <p>Tap the bathroom to start the first level!</p>
+                </div>
+
+
+                    <p class="steps">STEP 3</p>
+                    <div class="video">
+                    <video width="340" height="160" controls>
+                        <source src="videos/step3.mp4" type="video/mp4">
+                    </video>
+                    <p>Drag and drop items from the bottom of the screen to match them with the faded shapes at the top!</p>
+                </div>
+
             </div>
+
             <div>        
-                <button type="button" id="openHomePg"><p>Open Home Page</p><i class="fas fa-play"></i></button></div>
+                <button type="button" class="openHomePgInst" id="openHomePg"><p>Open Home Page</p><i class="fas fa-play"></i></button>
+            </div>
         </div>
+
     </div>
 
 

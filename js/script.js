@@ -2,10 +2,8 @@ $(document).ready(() => {
   //global variable
   let droppedItemScore = 0;
   let selectedCharacter;
-  let score = 0;
   let mistake = 0;
   let totalDraggables = $(".dragElement").length; // Count all draggable elements
-  let results;
   //the score for each room
   let bathroomScore = 0;
   let bedroomScore = 0;
@@ -88,6 +86,10 @@ $(document).ready(() => {
     $("#dropZone").append(element);
   });
 
+  // information button
+  $("#instructionBtn").on("click", function() {
+    window.location.href = "instruction.html";
+  })
   // audio on/off
   const gameaudio = $("#gameaudio")[0];
   const btn = $("#audioBtn");
@@ -190,12 +192,6 @@ $(document).ready(() => {
     tv: "images/livingroom/tv.png",
     vase: "images/livingroom/vase.png",
   };
-
-  // loop to iterate over the items in itemImages and log each item
-  for (const item in itemImages) {
-    if (itemImages.hasOwnProperty(item)) {
-    }
-  }
 
   $(".droppableFaded").droppable({
     // Restrict to specific items and match the draggable items id
@@ -429,22 +425,26 @@ $(document).ready(() => {
           `Livingroom score is: ${livingroomScore}. Mistakes in livingroom are: ${mistake}. Remining is: ${livingroomRemaining}.`
         );
 
-        // When all draggables are dropped in each room, show the completion div
-        if (bathroomRemaining === 0) {
-          $("#bathroomLevCompleted").css("visibility", "visible").fadeIn(500);
+// Loop through each room and check if all items are dropped
+const rooms = [
+  { name: 'Bathroom', remaining: bathroomRemaining, score: bathroomScore },
+  { name: 'Bedroom', remaining: bedroomRemaining, score: bedroomScore },
+  { name: 'Kitchen', remaining: kitchenRemaining, score: kitchenScore },
+  { name: 'Livingroom', remaining: livingroomRemaining, score: livingroomScore }
+];
 
-        }
-        if (bedroomRemaining === 0) {
-          $("#bedroomLevCompleted").css("visibility", "visible").fadeIn(500); // Show bedroom completion div
-        }
-        if (kitchenRemaining === 0) {
-          $("#kitchenLevCompleted").css("visibility", "visible").fadeIn(500); // Show kitchen completion div
-        }
-        if (livingroomRemaining === 0) {
-          $("#livingroomLevCompleted").css("visibility", "visible").fadeIn(500); // Show kitchen completion div
-          // window.location.href = 'scoreBoard.html'; //redirect to score board page
-        }
-      }
+for (let i = 0; i < rooms.length; i++) {
+  let room = rooms[i];
+  console.log(`${room.name} score: ${room.score}, Remaining: ${room.remaining}`);
+  
+  if (room.remaining === 0) {
+    $(`#${room.name.toLowerCase()}LevCompleted`).css("visibility", "visible").fadeIn(500);
+    console.log(`${room.name} completed!`);
+  } else {
+    console.log(`${room.name} is still in progress.`);
+  }
+}
+}
 
       ui.draggable.css("visibility", "hidden"); // Hide the original draggable element to avoid duplication
 
