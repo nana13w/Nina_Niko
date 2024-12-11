@@ -15,6 +15,12 @@ body {
     display: flex;
     flex-direction: column;
     padding: 10px;
+
+    /* code to avoid selection */
+    user-select: none; /* Prevents text selection */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For IE10+ */
 }
 
 header {
@@ -676,7 +682,7 @@ h2 {
 
 .container {
 
-    height: 20%;
+    height: 15%;
     /* Set height */
     width: 90%;
     display: flex;
@@ -688,6 +694,13 @@ h2 {
     background-color: #ffffff61;
     margin: auto;
     z-index: 1;
+    position: absolute;
+    bottom: 0;
+}
+
+.cointainerFiller {
+    height: 100px;
+    width: 90%;
 }
 
 .elements {
