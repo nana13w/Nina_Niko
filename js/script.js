@@ -89,7 +89,9 @@ $(document).ready(() => {
   // information button
   $("#instructionBtn").on("click", function() {
     window.location.href = "instruction.html";
+    history.back(); // Navigates back to the previous page
   })
+
   // audio on/off
   const gameaudio = $("#gameaudio")[0];
   const btn = $("#audioBtn");
@@ -97,10 +99,10 @@ $(document).ready(() => {
   const audio = $("audio")[0];
 
   btn.on("click", function () {
-    if (audio.paused) { // play audio if paused
+    if (gameaudio.paused) { // play audio if paused
       console.log("Playing audio");
-      audio.volume = 0.3;
-      audio
+      gameaudio.volume = 0.1; // Set volume to 10%
+      gameaudio
         .play()
         .then(() => {
           icon.removeClass("fa-volume-up");
@@ -111,7 +113,7 @@ $(document).ready(() => {
         });
     } else {
       console.log("Pausing audio");
-      audio.pause(); //pause audio if playing
+      gameaudio.pause(); //pause audio if playing
       icon.removeClass("fa-volume-mute");
       icon.addClass("fa-volume-up");
     }
@@ -253,6 +255,7 @@ $(document).ready(() => {
 
       let correctAnswer = document.getElementById("correctAnswer");
       correctAnswer.currentTime = 0;
+      correctAnswer.volume = 0.6; // Set the volume to 60%
       correctAnswer.play();
 
       if (selectedCharacter === "girl") {
@@ -355,6 +358,7 @@ $(document).ready(() => {
         $("#bathroomLevCompleted").css("visibility", "visible").fadeIn(500);
 
         let levelCompleted = document.getElementById("levelCompleted");
+        correctAnswer.volume = 0.3; // Set the volume to 30%
         levelCompleted.currentTime = 0;
         levelCompleted.play(); //level completed - sound effect
       }
@@ -837,6 +841,14 @@ for (let i = 0; i < rooms.length; i++) {
       window.location.href = "index.html";
     });
   });
+
+  $("#closeInstructionPg").on("click", function () {
+    $("body").fadeOut(500, function () {
+      // Callback after fadeOut finishes
+      history.back(); // Navigates back to the previous page
+    });
+  });
+
 
   // Function to rotate if screen width is smaller than 800px
   function checkScreenWidth() {

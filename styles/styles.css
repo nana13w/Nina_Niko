@@ -202,25 +202,6 @@ h2 {
 }
 
 
-#instructionInterface {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: left;
-    flex-direction: column;
-    z-index: 999;
-}
-
-.instructionPg,
-.instructionHeading {
-    display: flex;
-    align-items: left;
-    flex-direction: column;
-}
 
 .scoreHeading {
     color: white;
@@ -266,16 +247,41 @@ h2 {
 
 }
 
-#bathroomLevCompleted,
-#bedroomLevCompleted,
-#kitchenLevCompleted,
-#livingroomLevCompleted {
-    position: fixed;
+#instruction {
+        position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+#instructionInterface {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.instructionPg,
+.instructionHeading {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+}
+
+
+#bathroomLevCompleted,
+#bedroomLevCompleted,
+#kitchenLevCompleted,
+#livingroomLevCompleted {
+
     display: flex;
     justify-content: center;
     align-items: center;
