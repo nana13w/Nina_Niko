@@ -48,7 +48,6 @@ $(document).ready(() => {
   let girlCharacter = $("#girl").on("click", function () {
     selectedCharacter = "girl";
     localStorage.setItem("selectedCharacter", selectedCharacter);
-    console.log("Girl selected:", selectedCharacter); // Debugging
     $("#boy").css("opacity", "0").fadeOut(500);
     $("#welcomeBubble").css("opacity", "0").fadeOut(500);
     $("#tidyUpLeft").css("visibility", "visible").fadeIn(300);
@@ -59,7 +58,6 @@ $(document).ready(() => {
   let boyCharacter = $("#boy").on("click", function () {
     selectedCharacter = "boy";
     localStorage.setItem("selectedCharacter", selectedCharacter);
-    console.log("Boy selected:", selectedCharacter); // Debugging
     $("#girl").css("opacity", "0").fadeOut(500);
     $("#welcomeBubble").css("opacity", "0").fadeOut(500);
     $("#tidyUpRight").css("visibility", "visible").fadeIn(300);
@@ -107,7 +105,6 @@ document.querySelectorAll("video").forEach(video => {
 
   btn.on("click", function () {
     if (gameaudio.paused) { // play audio if paused
-      console.log("Playing audio");
       gameaudio.volume = 0.1; // Set volume to 10%
       gameaudio
         .play()
@@ -119,7 +116,6 @@ document.querySelectorAll("video").forEach(video => {
           console.error("Error playing audio:", error);
         });
     } else {
-      console.log("Pausing audio");
       gameaudio.pause(); //pause audio if playing
       icon.removeClass("fa-volume-mute");
       icon.addClass("fa-volume-up");
@@ -242,10 +238,6 @@ document.querySelectorAll("video").forEach(video => {
     const droppedId = ui.draggable.attr("id"); // Get the ID of the dropped element
     const droppableId = $(this).attr("id");
 
-    console.log(`Dropped ID: ${droppedId}, Droppable ID: ${droppableId}`); // Debugging log
-    console.log("Selected character during drop:", selectedCharacter);
-
-
     //show selected character
     selectedCharacter = localStorage.getItem("selectedCharacter");
     if (selectedCharacter) {
@@ -271,18 +263,14 @@ document.querySelectorAll("video").forEach(video => {
           .fadeIn(300)
           .delay(300)
           .fadeOut(300);
-        console.log("girl was selected")
 
       } else if (selectedCharacter === "boy") {
-        console.log("Boy was selected, playing happyB animation");
         $(".happyB") // Correct selector for happy boy
           .css("visibility", "visible")
           .fadeIn(300)
           .delay(300)
           .fadeOut(300);
-      } else {
-        console.log("Dropped item does not match target.");
-      }
+      } 
 
 
       if (droppableId.includes("bathroom")) {
@@ -317,8 +305,6 @@ document.querySelectorAll("video").forEach(video => {
       // Calculate the total score
       let finalScore =
         bathroomScore + bedroomScore + kitchenScore + livingroomScore;
-
-      console.log("Final Score: " + finalScore);
     } else {
 
       let incorrectAnswer = document.getElementById("incorrectAnswer");
@@ -331,18 +317,14 @@ document.querySelectorAll("video").forEach(video => {
           .fadeIn(300)
           .delay(300)
           .fadeOut(300);
-        console.log("girl was selected")
 
       } else if (selectedCharacter === "boy") {
-        console.log("Boy was selected, playing sadB animation");
         $(".sadB") // Correct selector for happy boy
           .css("visibility", "visible")
           .fadeIn(300)
           .delay(300)
           .fadeOut(300);
-      } else {
-        console.log("Dropped item does not match target.");
-      }
+      };
     }
 
     if (finalScore === totalDraggables) {
@@ -358,7 +340,6 @@ document.querySelectorAll("video").forEach(video => {
     // Decrease the count based on the room
     if (room === "bathroom") {
       bathroomRemaining--;
-      console.log(`Bathroom remaining: ${bathroomRemaining}`);
 
       // When all draggables are dropped in the bathroom, show the completion div
       if (bathroomRemaining === 0) {
@@ -371,7 +352,6 @@ document.querySelectorAll("video").forEach(video => {
       // Show bathroom completion div
     } else if (room === "bedroom") {
       bedroomRemaining--;
-      console.log(`Bedroom remaining: ${bedroomRemaining}`);
       // When all draggables are dropped in the bedroom, show the completion div
       if (bedroomRemaining === 0) {
         $("#bedroomLevCompleted").css("visibility", "visible").fadeIn(500); // Show bedroom completion div
@@ -382,7 +362,6 @@ document.querySelectorAll("video").forEach(video => {
       }
     } else if (room === "kitchen") {
       kitchenRemaining--;
-      console.log(`Kitchen remaining: ${kitchenRemaining}`);
       // When all draggables are dropped in the kitchen, show the completion div
       if (kitchenRemaining === 0) {
         $("#kitchenLevCompleted").css("visibility", "visible").fadeIn(500); // Show kitchen completion div
@@ -393,7 +372,6 @@ document.querySelectorAll("video").forEach(video => {
       }
     } else if (room === "livingroom") {
       livingroomRemaining--;
-      console.log(`Livingroom remaining: ${livingroomRemaining}`);
       // When all draggables are dropped in the livingroom, show the completion div
       if (livingroomRemaining === 0) {
         $("#livingroomLevCompleted").css("visibility", "visible").fadeIn(500); // Show kitchen completion div
@@ -422,18 +400,6 @@ document.querySelectorAll("video").forEach(video => {
         bedroomRemaining--;
         kitchenRemaining--;
         livingroomRemaining--;
-        console.log(
-          `Bathroom score is: ${bathroomScore}. Mistakes in bathroom are: ${mistake}. Remining is: ${bathroomRemaining}.`
-        );
-        console.log(
-          `Bedroom score is: ${bedroomScore}. Mistakes in bedroom are: ${mistake}. Remining is: ${bedroomRemaining}.`
-        );
-        console.log(
-          `Kitchen score is: ${kitchenScore}. Mistakes in kitchen are: ${mistake}. Remining is: ${kitchenRemaining}.`
-        );
-        console.log(
-          `Livingroom score is: ${livingroomScore}. Mistakes in livingroom are: ${mistake}. Remining is: ${livingroomRemaining}.`
-        );
 
 // Loop through each room and check if all items are dropped
 const rooms = [
@@ -445,14 +411,11 @@ const rooms = [
 
 for (let i = 0; i < rooms.length; i++) {
   let room = rooms[i];
-  console.log(`${room.name} score: ${room.score}, Remaining: ${room.remaining}`);
+
   
   if (room.remaining === 0) {
     $(`#${room.name.toLowerCase()}LevCompleted`).css("visibility", "visible").fadeIn(500);
-    console.log(`${room.name} completed!`);
-  } else {
-    console.log(`${room.name} is still in progress.`);
-  }
+  } 
 }
 }
 
@@ -470,18 +433,14 @@ for (let i = 0; i < rooms.length; i++) {
             .fadeIn(300)
             .delay(300)
             .fadeOut(300);
-          console.log("girl was selected")
 
         } else if (selectedCharacter === "boy") {
-          console.log("Boy was selected, playing sadB animation");
           $(".sadB") // Correct selector for happy boy
             .css("visibility", "visible")
             .fadeIn(300)
             .delay(300)
             .fadeOut(300);
-        } else {
-          console.log("Dropped item does not match target.");
-        }
+        } 
         $("#heart3").css("visibility", "hidden").fadeOut(300);
 
       } else if (mistake === 2) {
@@ -491,18 +450,15 @@ for (let i = 0; i < rooms.length; i++) {
             .fadeIn(300)
             .delay(300)
             .fadeOut(300);
-          console.log("girl was selected")
 
         } else if (selectedCharacter === "boy") {
-          console.log("Boy was selected, playing sadB animation");
+
           $(".sadB") // Correct selector for happy boy
             .css("visibility", "visible")
             .fadeIn(300)
             .delay(300)
             .fadeOut(300);
-        } else {
-          console.log("Dropped item does not match target.");
-        }
+        } 
         $("#heart2").css("visibility", "hidden").fadeOut(300);
       } else {
         if (selectedCharacter === "girl") {
@@ -511,18 +467,14 @@ for (let i = 0; i < rooms.length; i++) {
             .fadeIn(300)
             .delay(300)
             .fadeOut(300);
-          console.log("girl was selected")
 
         } else if (selectedCharacter === "boy") {
-          console.log("Boy was selected, playing sadB animation");
           $(".sadB") // Correct selector for happy boy
             .css("visibility", "visible")
             .fadeIn(300)
             .delay(300)
             .fadeOut(300);
-        } else {
-          console.log("Dropped item does not match target.");
-        }
+        } 
         $("#heart1").css("visibility", "hidden").fadeOut(300);
         $("#gameOverP").css("visibility", "visible").fadeIn(1500).delay(500);
         $("#gameOver").css("visibility", "visible").fadeIn(1500).delay(500);
@@ -564,7 +516,7 @@ for (let i = 0; i < rooms.length; i++) {
 
   //Function timer
   function startBathroomTimer() {
-    let bathroomCounter = 60; // Reset the counter
+    let bathroomCounter = 100; // Reset the 
     let bathroomTimer = setInterval(function () {
       bathroomCounter--;
 
@@ -579,12 +531,12 @@ for (let i = 0; i < rooms.length; i++) {
         console.log(
           `Bathroom Timer stopped due to droppedItemScore === 3 (GG).`
         );
-      } else if (bathroomCounter === 0) {
+      } if (bathroomCounter === 0) {
         clearInterval(bathroomTimer);
         console.log(
           `Bathroom Timer stopped due to bathroomCounter === 0 or MAX Points scored (GG2).`
         );
-      } else if (bathroomRemaining === 0) {
+      } if (bathroomRemaining === 0) {
         clearInterval(bathroomTimer);
         console.log(
           `Bathroom Timer stopped due to bathroomCounter === 0 or MAX Points scored (GG2).`
@@ -599,7 +551,11 @@ for (let i = 0; i < rooms.length; i++) {
       // Store the timer in localStorage
       localStorage.setItem("bathroomTimer", bathroomTimer);
     }, 1000);
+
+    console.log(`bathroom timer: ${bathroomTimer} or ${bathroomCounter}`)
+    
   }
+
 
   // bedroom game
   $("#openStartBedroom").on("click", startBedroom);
@@ -626,7 +582,7 @@ for (let i = 0; i < rooms.length; i++) {
 
   //Function timer
   function startBedroomTimer() {
-    let bedroomCounter = 60; // Reset the counter
+    let bedroomCounter = 100; // Reset the counter
     let bedroomTimer = setInterval(function () {
       bedroomCounter--;
 
@@ -683,7 +639,7 @@ for (let i = 0; i < rooms.length; i++) {
 
   //Function timer
   function startKitchenTimer() {
-    let kitchenCounter = 60; // Reset the counter to 60
+    let kitchenCounter = 100; // Reset the counter to 60
     let kitchenTimer = setInterval(function () {
       kitchenCounter--;
 
@@ -738,7 +694,7 @@ for (let i = 0; i < rooms.length; i++) {
 
   //Function timer
   function startLivingroomTimer() {
-    let livingroomCounter = 60; // Reset the counter
+    let livingroomCounter = 100; // Reset the counter
     let livingroomTimer = setInterval(function () {
       livingroomCounter--;
 
@@ -827,11 +783,11 @@ for (let i = 0; i < rooms.length; i++) {
 
   $("#scoreTime").text(finalTime); // Display remaining time
 
-  if (totalScore === 60) {
+  if (totalScore >= 59) {
     $("#star1").css("visibility", "visible");
     $("#star2").css("visibility", "visible");
     $("#star3").css("visibility", "visible");
-  } else if (totalScore < 60 && totalScore > 56) {
+  } else if (totalScore < 59 && totalScore > 56) {
     $("#star1").css("visibility", "visible");
     $("#star2").css("visibility", "visible");
     $("#star3").css("visibility", "hidden");
