@@ -89,9 +89,16 @@ $(document).ready(() => {
   // information button
   $("#instructionBtn").on("click", function() {
     window.location.href = "instruction.html";
-    history.back(); // Navigates back to the previous page
   })
 
+  // Automatically enter full screen when the video is played
+document.querySelectorAll("video").forEach(video => {
+  video.addEventListener("play", function () {
+      if (video.requestFullscreen) {
+          video.requestFullscreen(); // Standard Fullscreen API
+      }
+  });
+});
   // audio on/off
   const gameaudio = $("#gameaudio")[0];
   const btn = $("#audioBtn");
@@ -358,7 +365,6 @@ $(document).ready(() => {
         $("#bathroomLevCompleted").css("visibility", "visible").fadeIn(500);
 
         let levelCompleted = document.getElementById("levelCompleted");
-        correctAnswer.volume = 0.3; // Set the volume to 30%
         levelCompleted.currentTime = 0;
         levelCompleted.play(); //level completed - sound effect
       }
@@ -841,14 +847,6 @@ for (let i = 0; i < rooms.length; i++) {
       window.location.href = "index.html";
     });
   });
-
-  $("#closeInstructionPg").on("click", function () {
-    $("body").fadeOut(500, function () {
-      // Callback after fadeOut finishes
-      history.back(); // Navigates back to the previous page
-    });
-  });
-
 
   // Function to rotate if screen width is smaller than 800px
   function checkScreenWidth() {
